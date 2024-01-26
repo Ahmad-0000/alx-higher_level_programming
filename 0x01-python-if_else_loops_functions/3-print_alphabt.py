@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-for i in "abcdefghijklmnopqrstuvwxyz":
-    if (i == 'e') or (i == 'q'):
+for i in range(97, 123):
+    if (i == ord('e')) or (i == ord('q')):
         continue
-    print(i, end="")
+    print("{}".format(chr(i)), end="")
