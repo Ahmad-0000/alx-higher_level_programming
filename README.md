@@ -1,5 +1,5 @@
-# A new 3 months of programming.
+# Python!!!
+## Description
 ***Python, I'm coming.***
-This is the repository for my second trimester projects in python programming langauge
-
-
+This is the repository for my second trimester project
+s in **Python Programming Langauge** and **OOP**
