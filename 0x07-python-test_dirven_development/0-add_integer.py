@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-""" A module containing 
+""" A module containing
     one function, add_integer,
     which can be used
     to return the sum of two
     integers after ensuring their types"""
+
+
 def add_integer(a, b=98):
     """         to return a + b - if they are
         integers, floats or mixed-
