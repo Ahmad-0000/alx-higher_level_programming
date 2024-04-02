@@ -12,7 +12,7 @@ class Rectangle:
     print a string representation of the
     rectangle. The __repr__ method is
     modified to retrun a string representation
-    of the rectangle to be able to recreate a 
+    of the rectangle to be able to recreate a
     new rectangle using eval()
     """
 
