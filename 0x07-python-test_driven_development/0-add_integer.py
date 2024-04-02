@@ -10,6 +10,7 @@ def add_integer(a, b=98):
     """         to return a + b - if they are
         integers, floats or mixed-
         errors are raised otherwise """
+
     allowed_types = [int, float]
     if type(a) not in allowed_types:
         raise TypeError('a must be an integer')
