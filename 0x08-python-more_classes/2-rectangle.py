@@ -1,7 +1,14 @@
 #!/usr/bin/python3
+"""
+A module containing one class "Rectangle"
+"""
+
 
 class Rectangle:
-
+    """
+    A rectangle class with width and height
+    attributes and area, perimeter methods
+    """
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height

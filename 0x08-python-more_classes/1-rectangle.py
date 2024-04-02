@@ -5,6 +5,11 @@ A module containing one class "Rectangle"
 
 
 class Rectangle:
+    """
+    A rectangel class with width and height
+    attributes
+    """
+
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
