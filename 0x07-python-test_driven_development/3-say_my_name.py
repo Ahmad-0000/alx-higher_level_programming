@@ -1,15 +1,19 @@
 #!/usr/bin/python3
-""" A module contains a function -
-(say_my_name) - to print the first
-and last name of a person. first_name
-and last_name must both be strings,
-otherwise a TypeError will be raised
-with the sentence "first_name must be a string" or
-"last name must be a string"
+""" A modult containing one function
+"say_my_name". It's the solution
+of the third task of the project
+"0x07-python-test_driven_development"
 """
 
 
 def say_my_name(first_name, last_name=""):
+    """
+    A function to print "My name is <
+    first name> <last name>", where <first
+    name> and <last name> are strings,
+    otherwise, errors will occur
+    """
+
     if type(first_name) is not str:
         raise TypeError('first_name must be a string')
     elif type(last_name) is not str:
