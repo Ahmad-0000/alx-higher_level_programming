@@ -7,6 +7,10 @@
 >>> sys.path.append("..")
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> b1 = BaseGeometry()
+>>> b1.area()
+Traceback (most recent call last):
+  ...
+Exception: area() is not implemented
 >>> b1.integer_validator("one", 1)
 >>> b1.integer_validator("tow", "one")
 Traceback (most recent call last):
