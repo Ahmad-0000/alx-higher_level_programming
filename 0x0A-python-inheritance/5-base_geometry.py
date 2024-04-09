@@ -7,7 +7,7 @@ later.
 """
 
 
-class BasGeometry():
+class BaseGeometry():
     """
     An empty class to be filled later
     in the subsequent tasks
