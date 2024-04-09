@@ -44,6 +44,26 @@ TypeError: tow must be an integer
 Traceback (most recent call last):
   ...
 TypeError: tow must be an integer
+>>> b1.integer_validator("tow", True)
+Traceback (most recent call last):
+  ...
+TypeError: tow must be an integer
+>>> b1.integer_validator("tow", 0)
+Traceback (most recent call last):
+  ...
+ValueError: tow must be greater than 0
+>>> b1.integer_validator("tow", None)
+Traceback (most recent call last):
+  ...
+TypeError: tow must be an integer
+>>> b1.integer_validator()
+Traceback (most recent call last):
+  ...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+>>> b1.integer_validator("ahmad", 3, 4)
+Traceback (most recent call last):
+  ...
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
 >>> b1.integer_validator("three", -3)
 Traceback (most recent call last):
   ...
