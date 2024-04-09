@@ -7,6 +7,7 @@ A module containing one class:
 
 class BasGeometry():
     """
-    An empty class
+    An empty class to be filled later
+    in the subsezuent tasks
     """
     pass
