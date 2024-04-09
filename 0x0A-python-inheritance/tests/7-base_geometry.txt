@@ -1,0 +1,24 @@
+###########################################################
+                BaseGeometry  tests
+###########################################################
+
+"""
+>>> import sys
+>>> sys.path.append("..")
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> b1 = BaseGeometry()
+>>> b1.integer_validator("one", 1)
+>>> b1.integer_validator("tow", "one")
+Traceback (most recent call last):
+  ...
+TypeError: tow must be an integer
+>>> b1.integer_validator("three", -3)
+Traceback (most recent call last):
+  ...
+ValueError: three must be greater than 0
+>>> b1.integer_validator("four", 0)
+Traceback (most recent call last):
+  ...
+ValueError: four must be greater than 0
+
+"""
