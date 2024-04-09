@@ -18,5 +18,5 @@ class Rectangle(BaseGeometry):
         Initialization function
         """
 
-        self.__width = self.integer_validator(width)
-        self.__height = self.integer_validator(height)
+        self.__width = self.integer_validator("wtidth", width)
+        self.__height = self.integer_validator("height", height)
