@@ -7,7 +7,7 @@ exports.converter = function (base) {
     }
     if (typeof base === 'number' && typeof arg === 'number') {
       if (base === 2 || base === 8 || base === 10 || base === 16) {
-        return +arg.toString(base);
+        return arg.toString(base);
       } else {
         return 0;
       }
