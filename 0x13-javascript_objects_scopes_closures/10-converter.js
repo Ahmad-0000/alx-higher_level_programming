@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-exports.convertor = function (base) {
+exports.converter = function (base) {
   function inner (arg) {
     return +arg.toString(base);
   }
