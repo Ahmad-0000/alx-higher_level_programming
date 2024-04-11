@@ -1,3 +1,4 @@
-# 2nd Python project
-***This is my second python project***
-It's about "if", "else", "loops" and "functions" in python
+# Python - if, else, loops and functions
+## Description
+Here I will focus on the basics of writing **if, else, loops and
+functions** in **Python**
