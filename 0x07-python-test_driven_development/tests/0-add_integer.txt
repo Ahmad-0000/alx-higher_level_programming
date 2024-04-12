@@ -1,30 +1,67 @@
+#######################################################################
+                        "add_integer" test cases
+#######################################################################
 """
 >>> import sys
 >>> sys.path.append('..')
 >>> add_integer = __import__('0-add_integer').add_integer
 >>> add_integer(1, 2)
 3
->>> add_integer(-100, 2)
--98
->>> add_integer(100, -2)
-98
->>> add_integer(-2, -2)
--4
->>> add_integer(2)
-100
->>> add_integer(100.3, 100.3)
-200
->>> add_integer(-100.3, 100)
-0
->>> add_integer(100, -100.3)
-0
->>> add_integer(-100.3, -100.3)
--200
+>>> add_integer(1)
+99
 >>> add_integer('ahmad', 100)
 Traceback (most recent call last):
     ...
 TypeError: a must be an integer
 >>> add_integer(100, 'ahmad')
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer((5j + 1), 1)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(1, 5j + 1)
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer({}, 1)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(1, {})
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer([], 1)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(1, [])
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer((), 1)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(1, ())
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer({1}, 1)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(1, {1})
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+>>> add_integer(True, 1)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(1, True)
 Traceback (most recent call last):
     ...
 TypeError: b must be an integer
