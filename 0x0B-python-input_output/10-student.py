@@ -35,6 +35,4 @@ class Student:
                     customized_dict[f'{name}'] = self.__dict__[f'{name}']
             return customized_dict
         else:
-            return self.__dict__
-
-
+            return {}
