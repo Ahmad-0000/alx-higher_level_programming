@@ -29,7 +29,9 @@ class Student:
         whole dictionary description will be returned
         """
         customized_dict = dict()
-        if attrs:
+        if type(attrs) is not list:
+            return self.__dict__
+        elif attrs:
             for name in attrs:
                 if name in self.__dict__.keys():
                     customized_dict[f'{name}'] = self.__dict__[f'{name}']
