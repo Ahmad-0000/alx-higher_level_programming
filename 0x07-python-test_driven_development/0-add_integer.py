@@ -1,15 +1,14 @@
 #!/usr/bin/python3
-""" A module containing
-    one function, add_integer,
-    which can be used
-    to return the sum of two
-    integers after ensuring their types"""
-
+"""
+A module containing one function:
+    "add_integer"
+"""
 
 def add_integer(a, b=98):
-    """         to return a + b - if they are
-        integers, floats or mixed-
-        errors are raised otherwise """
+    """
+    A function to return the reslut of "a" + "b"
+    with input validation first.
+    """
 
     allowed_types = [int, float]
     if type(a) not in allowed_types:
