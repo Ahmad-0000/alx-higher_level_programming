@@ -28,7 +28,7 @@ class Square:
     @property
     def position(self):
         """ A getter method for retrieving position """
-        return self.__porition
+        return self.__position
 
     @position.setter
     def position(self, value):
