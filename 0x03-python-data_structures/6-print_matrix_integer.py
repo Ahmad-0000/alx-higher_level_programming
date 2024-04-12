@@ -5,7 +5,7 @@ def print_matrix_integer(matrix=[[]]):
     for i in matrix:
         if type(i) is not list:
             return
-    if not (len(matrix)):
+    if not (len(matrix)) or len(matrix) == 1:
         print()
     for my_list in matrix:
         for element in range(len(my_list)):
