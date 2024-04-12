@@ -6,7 +6,7 @@ A module containing one function:
 import json
 
 
-def to_json_string(my_str):
+def from_json_string(my_str):
     """
     A function to convert a JSON string "my_str" to a Python
     object.
