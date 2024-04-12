@@ -23,5 +23,6 @@ if __name__ == "__main__":
 
     for i in op_fun_pairs.keys():
         if op == i:
-            print(op_fun_pairs[f'{op}'](first_num, second_num))
+            result = op_fun_pairs[f'{op}'](first_num, second_num)
+            print(f'{first_num} {op} {second_num} = {result}')
             break
