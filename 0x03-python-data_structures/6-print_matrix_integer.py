@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
+    if type(matrix) is not list:
+        return
+    for i in matrix:
+        if type(i) is not list:
+            return
     if not (len(matrix)):
         print()
     for my_list in matrix:
