@@ -34,4 +34,7 @@ class Student:
                 if name in self.__dict__.keys():
                     customized_dict[f'{name}'] = self.__dict__[f'{name}']
             return customized_dict
-        return self.__dict__
+        else:
+            return self.__dict__
+
+
