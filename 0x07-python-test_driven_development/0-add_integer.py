@@ -4,6 +4,7 @@ A module containing one function:
     "add_integer"
 """
 
+
 def add_integer(a, b=98):
     """
     A function to return the reslut of "a" + "b"
