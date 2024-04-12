@@ -59,7 +59,7 @@ class Rectangle:
         for i in range(self.__width):
             str_rep = str_rep + "#"
         row = str_rep
-        for j in range(self.__height):
+        for j in range(self.__height - 1):
             str_rep = str_rep + '\n' + row
         return str_rep
 
