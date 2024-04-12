@@ -9,8 +9,11 @@ def print_matrix_integer(matrix=[[]]):
         print()
         return
     for my_list in matrix:
-        for element in range(len(my_list)):
-            if (element == (len(my_list) - 1)):
-                print("{:d}".format(my_list[element]))
-            else:
-                print("{:d} ".format(my_list[element]), end="")
+        if len(my_list) == 0:
+            print()
+        else:
+            for element in range(len(my_list)):
+                if (element == (len(my_list) - 1)):
+                    print("{:d}".format(my_list[element]))
+                else:
+                    print("{:d} ".format(my_list[element]), end="")
