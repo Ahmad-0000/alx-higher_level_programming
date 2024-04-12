@@ -5,7 +5,7 @@ A module containing one function:
 """
 
 
-def write_file(filename="", text=""):
+def append_write(filename="", text=""):
     """
     A function to append into a file provided in the path "filename"
     . If "filename" is not provided, the default is "". if "filename"
