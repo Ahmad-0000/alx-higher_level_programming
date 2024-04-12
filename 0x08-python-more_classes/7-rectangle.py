@@ -30,8 +30,8 @@ class Rectangle:
     print_symbol = "#"
 
     def __init__(self, width=0, height=0, print_symbol="#"):
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
         self.print_symbol = print_symbol
 
@@ -71,7 +71,8 @@ class Rectangle:
         str_rep = ""
         if self.__width == 0 or self.__height == 0:
             return str_rep
-        Rectangle.print_symbol = str(self.print_symbol)
+        if self.print_symbol is not Rectangle.print_symbol:
+            Rectangle.print_symbol = str(self.print_symbol)
         for i in range(self.__width):
             str_rep = str_rep + Rectangle.print_symbol
         row = str_rep
