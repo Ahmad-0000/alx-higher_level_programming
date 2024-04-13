@@ -2,14 +2,19 @@
 """
 A module containing one class:
     "Rectangle"
+This class inherits from the class "Base" to
+reduce code repetition.
 """
 from base import Base
 
 
 class Rectangle(Base):
     """
-    My "Rectangle" class that inherites from "Base" class from the
-    "base" module
+    My "Rectangle" class that inherites
+    from "Base" class from the "base"
+    module, thus, having the abilit to 
+    initialize "id" instance attribute using
+    "Base" initializer
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
