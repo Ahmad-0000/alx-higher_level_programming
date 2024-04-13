@@ -105,3 +105,14 @@ class Rectangle(Base):
         instance
         """
         return self.__width * self.__height
+
+    def display(self):
+        """
+        A public instance method to print a representation
+        of the rectangle using "#" symbol
+        """
+        row = "#"
+        for i in range(self.__width - 1):
+            row += "#"
+        for i in range(self.__height):
+            print(row)
