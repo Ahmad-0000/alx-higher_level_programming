@@ -6,6 +6,7 @@ This class will be the baseclass for all the other classes in this
 project. The goal of this is to avoid repeating the same code again
 (by extension, same bugs)
 """
+import json
 
 
 class Base():
@@ -38,3 +39,14 @@ class Base():
         else:
             Base.__nb_instances += 1
             self.__id = Base.__nb_instances
+
+    def to_json_string(list_dictionaries):
+        """
+        A method to return a JSON string of a list
+        of dictionaries "list_dictionaries". If
+        dict_dictionaries is empty the return value
+        is []
+        """
+        if not list_dictionaries:
+            return []
+        return json.dumps(list_dictionaries)
