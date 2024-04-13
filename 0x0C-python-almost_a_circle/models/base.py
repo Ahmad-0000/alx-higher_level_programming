@@ -45,8 +45,8 @@ class Base():
         A method to return a JSON string of a list
         of dictionaries "list_dictionaries". If
         dict_dictionaries is empty the return value
-        is []
+        is "[]" (string type)
         """
         if not list_dictionaries:
-            return []
+            return "[]"
         return json.dumps(list_dictionaries)
