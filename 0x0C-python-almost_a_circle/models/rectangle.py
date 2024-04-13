@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""
-A module containing one class:
+"""A module containing one class:
     "Rectangle"
-This class inherits from the class "Base" to
-reduce code repetition.
+This class inherits from the class
+"Base" to reduce code repetition.
+Rectangle class will have a lot of
+functionality later on
 """
 from base import Base
 
@@ -26,11 +27,11 @@ class Rectangle(Base):
             y
         "id" will be initalized using "base" class initializer
         """
-        self.width = width
+        super().__init__(id)
         self.height = height
+        self.width = width
         self.x = x
         self.y = y
-        super().__init__(id)
 
     @property
     def width(self):
