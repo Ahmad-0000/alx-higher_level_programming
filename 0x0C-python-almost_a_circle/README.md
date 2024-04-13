@@ -14,7 +14,9 @@ far in **Python** including:
 * Inheritance
 * Unittest Module
 * Reading/Writing Files
+
 I will also learn about:
+
 * **\*args** and **\*\*kwargs**
 * Serialization/Deserialization
 * JSON
