@@ -124,3 +124,19 @@ class Rectangle(Base):
     def __str__(self):
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} \
 - {self.__width}/{self.__height}"
+
+    def update(self, *args):
+        """
+        A pulic instance method to update the attributes id,
+        width, height, x and y
+        """
+        private_attrs = ['__id', '__width', '__height', '__x', '__y']
+        i = 0
+        for j in args:
+            if i == 5:
+                break
+            elif i == 0:
+                self.__dict__[f'_Base{private_attrs[i]}'] = args[i]
+            else:
+                self.__dict__[f'_Rectangle{private_attrs[i]}'] = args[i]
+            i += 1
