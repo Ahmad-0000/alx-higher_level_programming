@@ -2,12 +2,16 @@
 """
 A module containing one class:
     "Rectangle"
-"Rectangle" inherits from "Base" from the "base" module
 """
 from base import Base
 
 
 class Rectangle(Base):
+    """
+    My "Rectangle" class that inherites from "Base" class from the
+    "base" module
+    """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Intialization method
