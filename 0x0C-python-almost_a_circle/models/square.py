@@ -83,3 +83,15 @@ class Square(Rectangle):
                         self.size = kwargs[key]
                     else:
                         self.__dict__[f'_Rectangle__{key}'] = kwargs[key]
+
+    def to_dictionary(self):
+        """
+        A method to retrieve a dictionary representation
+        of a "Square" instance
+        """
+        dict_repr = {}
+        dict_repr['id'] = self._Base__id
+        dict_repr['x'] = self._Rectangle__x
+        dict_repr['size'] = self.size
+        dict_repr['y'] = self._Rectangle__y
+        return dict_repr
