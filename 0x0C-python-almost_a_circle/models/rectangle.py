@@ -151,3 +151,16 @@ class Rectangle(Base):
                 else:
                     self.__dict__[f'_Rectangle__{key}'] = kwargs[f'{key}']
                 i += 1
+
+    def to_dictionary(self):
+        """
+        A method to return a dicitonary representation
+        of a "Rectangle" instance
+        """
+        dict_repr = {}
+        dict_repr['x'] = self.x
+        dict_repr['y'] = self.y
+        dict_repr['id'] = self.id
+        dict_repr['height'] = self.height
+        dict_repr['width'] = self.width
+        return dict_repr
