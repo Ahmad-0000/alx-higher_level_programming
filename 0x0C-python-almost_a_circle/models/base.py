@@ -22,17 +22,17 @@ class Base():
         self.id = id
 
     @property
-    """
-    A property to retrieve "self.__id" to ensure "Encapsulation"
-    """
     def id(self):
+        """
+        A property to retrieve "self.__id" to ensure "Encapsulation"
+        """
         return self.__id
 
     @id.setter
-    """
-    A setter to set "self.__id" to ensure "Encapsulation"
-    """
     def id(self, value):
+        """
+        A setter to set "self.__id" to ensure "Encapsulation"
+        """
         if value is not None:
             self.__id = value
         else:
