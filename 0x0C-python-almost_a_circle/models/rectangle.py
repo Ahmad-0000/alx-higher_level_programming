@@ -20,12 +20,8 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """
-        Intialization method to intialize these attributes:
-            width
-            height
-            x
-            y
-        "id" will be initalized using "base" class initializer
+        Intialization method. "id" will be initalized using
+        "base" class initializer
         """
         super().__init__(id)
         self.height = height
@@ -35,17 +31,13 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """
-        A property to reterive "width"
-        to ensure "Encapsulation"
-        """
+        """ width retriving property to ensure encapsulation"""
         return self.__width
 
     @width.setter
     def width(self, value):
         """
-        A setter to set "width"
-        to ensure "Encapsulations"
+        A setter to set "width" to ensure "Encapsulations"
         """
         if type(value) is not int:
             raise TypeError('width must be an integer')
@@ -56,16 +48,14 @@ class Rectangle(Base):
     @property
     def height(self):
         """
-        A property to reterive "height"
-        to ensure "Encapsulation"
+        A property to reterive "height" to ensure "Encapsulation"
         """
         return self.__height
 
     @height.setter
     def height(self, value):
         """
-        A setter to set "height"
-        to ensure "Encapsulations"
+        A setter to set "height" to ensure "Encapsulations"
         """
         if type(value) is not int:
             raise TypeError('height must be an integer')
@@ -76,16 +66,14 @@ class Rectangle(Base):
     @property
     def x(self):
         """
-        A property to reterive "x"
-        to ensure "Encapsulation"
+        A property to reterive "x" to ensure "Encapsulation"
         """
         return self.__x
 
     @x.setter
     def x(self, value):
         """
-        A setter to set "x"
-        to ensure "Encapsulations"
+        A setter to set "x" to ensure "Encapsulations"
         """
         if type(value) is not int:
             raise TypeError('x must be an integer')
@@ -96,19 +84,24 @@ class Rectangle(Base):
     @property
     def y(self):
         """
-        A property to reterive "y"
-        to ensure "Encapsulation"
+        A property to reterive "y" to ensure "Encapsulation"
         """
         return self.__y
 
     @y.setter
     def y(self, value):
         """
-        A setter to set "y"
-        to ensure "Encapsulations"
+        A setter to set "y" to ensure "Encapsulations"
         """
         if type(value) is not int:
             raise TypeError('y must be an integer')
         if value < 0:
             raise ValueError('y must be >= 0')
         self.__y = value
+
+    def area(self):
+        """
+        A public method to return the area of the "Rectanlge"
+        instance
+        """
+        return self.__width * self.__height
