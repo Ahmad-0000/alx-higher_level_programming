@@ -49,7 +49,7 @@ class Base():
         is "[]" (string type)
         """
         if not list_dictionaries:
-            return "[]"
+            return '"[]"'
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -64,6 +64,7 @@ class Base():
         filename = f"{cls.__name__}.json"
         with open(filename, 'w', encoding='utf-8') as my_file:
             list_dict = []
-            for obj in list_objs:
-                list_dict.append(obj.to_dictionary())
+            if list_objs:
+                for obj in list_objs:
+                    list_dict.append(obj.to_dictionary())
             my_file.write(cls.to_json_string(list_dict))
