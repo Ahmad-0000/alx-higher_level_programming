@@ -122,6 +122,10 @@ class Rectangle(Base):
             print(row)
 
     def __str__(self):
+        """
+        Modified to return a string represntation when
+        used
+        """
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} \
 - {self.__width}/{self.__height}"
 
