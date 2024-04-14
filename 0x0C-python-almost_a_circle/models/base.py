@@ -48,7 +48,7 @@ class Base():
         dict_dictionaries is empty the return value
         is "[]" (string type)
         """
-        if not list_dictionaries:
+        if not list_dictionaries or len(list_dictionaries) == 0:
             return '"[]"'
         return json.dumps(list_dictionaries)
 
@@ -68,3 +68,14 @@ class Base():
                 for obj in list_objs:
                     list_dict.append(obj.to_dictionary())
             my_file.write(cls.to_json_string(list_dict))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        A staticmethod to convert a JSON string
+        representation into a python object.
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
