@@ -40,6 +40,7 @@ class Base():
             Base.__nb_instances += 1
             self.__id = Base.__nb_instances
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """
         A method to return a JSON string of a list
