@@ -7,6 +7,7 @@ project. The goal of this is to avoid repeating the same code again
 (by extension, same bugs)
 """
 import json
+import os
 
 
 class Base():
@@ -94,3 +95,21 @@ class Base():
             dummy_obj = cls(2)
             dummy_obj.update(**dictionary)
             return dummy_obj
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        A class method that loads a JSON list contining
+        objects (dictionary representations) from a .json
+        file, and returns a list of real created objects
+        """
+        filename = f"{cls.__name__}.json"
+        if os.path.isfile(filename):
+            return_value = []
+            with open(filename, encoding="utf-8") as my_file:
+                file_list = cls.from_json_string(my_file.read())
+                for obj in file_list:
+                    return_value.append(cls.create(**obj))
+                return return_value
+        else:
+            return []
