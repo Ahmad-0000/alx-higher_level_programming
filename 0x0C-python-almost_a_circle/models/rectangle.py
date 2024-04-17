@@ -1,27 +1,26 @@
 #!/usr/bin/python3
-"""A module containing one class:
+""" A module containing one class:
     "Rectangle"
 This class inherits from the class
 "Base" to reduce code repetition.
 Rectangle class will have a lot of
-functionality later on
-"""
+functionality later on """
 from base import Base
 
 
 class Rectangle(Base):
-    """
-    My "Rectangle" class that inherites
+    """    My "Rectangle" class that inherites
     from "Base" class from the "base"
     module, thus, having the ability to
     initialize "id" instance attribute using
-    "Base" initializer
-    """
+    "Base" initializer"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Intialization method. "id" will be initalized using
-        "base" class initializer
+        "base" class initializer, and the other attributes
+        will be intialized using their own properties and
+        setters
         """
         super().__init__(id)
         self.height = height
@@ -31,13 +30,20 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """ width retriving property to ensure encapsulation"""
+        """ 
+        A property to retrive "width" to ensure "Encapsulation"
+        principle, in this way, I prevent the users form messing
+        with my class with their input
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
         """
         A setter to set "width" to ensure "Encapsulations"
+        principle, therer are some restrictions regarding
+        the values that can be used to assign to the attribute
+        width
         """
         if type(value) is not int:
             raise TypeError('width must be an integer')
@@ -48,7 +54,10 @@ class Rectangle(Base):
     @property
     def height(self):
         """
-        A property to reterive "height" to ensure "Encapsulation"
+        A property to reterive "height" to ensure "Encapsulation",
+        in this way I can let the user see the content of the
+        private property "__height" without letting him mess
+        width my class implementation
         """
         return self.__height
 
@@ -56,6 +65,9 @@ class Rectangle(Base):
     def height(self, value):
         """
         A setter to set "height" to ensure "Encapsulations"
+        principle, so that there are some restrictions
+        regarding usr input, so the wrong input will no
+        affect the class
         """
         if type(value) is not int:
             raise TypeError('height must be an integer')
