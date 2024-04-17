@@ -6,7 +6,7 @@ This class inherits from the class
 Rectangle class will have a lot of
 functionality later on
 '''
-from rectangle import Rectangle
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
