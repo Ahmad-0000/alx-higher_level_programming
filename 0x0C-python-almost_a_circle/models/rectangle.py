@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-"""     A module containing one class:
+'''     A module containing one class:
     "Rectangle"
 This class inherits from the class
 "Base" to reduce code repetition.
 Rectangle class will have a lot of
-functionality later on """
+functionality later on '''
 from base import Base
 
 
 class Rectangle(Base):
-    """    My "Rectangle" class that inherites
+    '''    My "Rectangle" class that inherites
     from "Base" class from the "base"
     module, thus, having the ability to
     initialize "id" instance attribute using
-    "Base" initializer"""
+    "Base" initializer'''
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """        Intialization method. "id" will be initalized using
+        '''        Intialization method. "id" will be initalized using
         "base" class initializer, and the other attributes
         will be intialized using their own properties and
-        setters"""
+        setters'''
         super().__init__(id)
         self.height = height
         self.width = width
@@ -28,9 +28,9 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """         A property to retrive "width" to ensure "Encapsulation"
+        '''         A property to retrive "width" to ensure "Encapsulation"
         principle, in this way, I prevent the users form messing
-        with my class with their input"""
+        with my class with their input'''
         return self.__width
 
     @width.setter
@@ -43,10 +43,10 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """        A property to reterive "height" to ensure "Encapsulation",
+        '''        A property to reterive "height" to ensure "Encapsulation",
         in this way I can let the user see the content of the
         private property "__height" without letting him mess
-        width my class implementation"""
+        width my class implementation'''
         return self.__height
 
     @height.setter
@@ -59,9 +59,9 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """        A property to retrive "x" to ensure "Encapsulation"
+        '''        A property to retrive "x" to ensure "Encapsulation"
         principle so that the user can acess the private
-        attribute '__x' without messing with the class"""
+        attribute '__x' without messing with the class'''
         return self.__x
 
     @x.setter
@@ -74,9 +74,9 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """        A property to reterive "y" to ensure "Encapsulation"
+        '''        A property to reterive "y" to ensure "Encapsulation"
         principle, so that the user can access the private
-        attribute "__y" without messing with the class"""
+        attribute "__y" without messing with the class'''
         return self.__y
 
     @y.setter
@@ -88,17 +88,17 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """
+        '''
         A public method to return the area of the "Rectanlge"
         instance
-        """
+        '''
         return self.__width * self.__height
 
     def display(self):
-        """
+        '''
         A public instance method to print a representation
         of the rectangle using "#" symbol
-        """
+        '''
         row = "#"
         for i in range(self.__width - 1):
             row += "#"
@@ -110,18 +110,18 @@ class Rectangle(Base):
             print(row)
 
     def __str__(self):
-        """
+        '''
         Modified to return a string represntation when
         used
-        """
+        '''
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} \
 - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
-        """
+        '''
         A pulic instance method to update the attributes id,
         width, height, x and y
-        """
+        '''
         private_attrs = ['__id', '__width', '__height', '__x', '__y']
         i = 0
         if args:
@@ -145,10 +145,10 @@ class Rectangle(Base):
                 i += 1
 
     def to_dictionary(self):
-        """
+        '''
         A method to return a dicitonary representation
         of a "Rectangle" instance
-        """
+        '''
         dict_repr = {}
         dict_repr['x'] = self.x
         dict_repr['y'] = self.y
