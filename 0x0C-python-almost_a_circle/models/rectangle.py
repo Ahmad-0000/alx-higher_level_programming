@@ -5,7 +5,7 @@ This class inherits from the class
 "Base" to reduce code repetition.
 Rectangle class will have a lot of
 functionality later on '''
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
