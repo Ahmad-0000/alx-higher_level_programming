@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" A module containing one class:
+"""     A module containing one class:
     "Rectangle"
 This class inherits from the class
 "Base" to reduce code repetition.
@@ -16,12 +16,10 @@ class Rectangle(Base):
     "Base" initializer"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """
-        Intialization method. "id" will be initalized using
+        """        Intialization method. "id" will be initalized using
         "base" class initializer, and the other attributes
         will be intialized using their own properties and
-        setters
-        """
+        setters"""
         super().__init__(id)
         self.height = height
         self.width = width
@@ -30,21 +28,17 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """ 
-        A property to retrive "width" to ensure "Encapsulation"
+        """         A property to retrive "width" to ensure "Encapsulation"
         principle, in this way, I prevent the users form messing
-        with my class with their input
-        """
+        with my class with their input"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """
-        A setter to set "width" to ensure "Encapsulations"
+        """        A setter to set "width" to ensure "Encapsulations"
         principle, therer are some restrictions regarding
         the values that can be used to assign to the attribute
-        width
-        """
+        width"""
         if type(value) is not int:
             raise TypeError('width must be an integer')
         if value <= 0:
@@ -53,22 +47,18 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """
-        A property to reterive "height" to ensure "Encapsulation",
+        """        A property to reterive "height" to ensure "Encapsulation",
         in this way I can let the user see the content of the
         private property "__height" without letting him mess
-        width my class implementation
-        """
+        width my class implementation"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """
-        A setter to set "height" to ensure "Encapsulations"
+        """        A setter to set "height" to ensure "Encapsulations"
         principle, so that there are some restrictions
         regarding usr input, so the wrong input will no
-        affect the class
-        """
+        affect the class"""
         if type(value) is not int:
             raise TypeError('height must be an integer')
         if value <= 0:
@@ -77,16 +67,16 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """
-        A property to reterive "x" to ensure "Encapsulation"
-        """
+        """        A property to retrive "x" to ensure "Encapsulation"
+        principle so that the user can acess the private
+        attribute '__x' without messing with the class"""
         return self.__x
 
     @x.setter
     def x(self, value):
-        """
-        A setter to set "x" to ensure "Encapsulations"
-        """
+        """        A setter to set "x" to ensure "Encapsulations"
+        principle, so therer are some restrictions
+        regardin user input to protect the class"""
         if type(value) is not int:
             raise TypeError('x must be an integer')
         if value < 0:
@@ -95,16 +85,16 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """
-        A property to reterive "y" to ensure "Encapsulation"
-        """
+        """        A property to reterive "y" to ensure "Encapsulation"
+        principle, so that the user can access the private
+        attribute "__y" without messing with the class"""
         return self.__y
 
     @y.setter
     def y(self, value):
-        """
-        A setter to set "y" to ensure "Encapsulations"
-        """
+        """        A setter to set "y" to ensure "Encapsulations"
+        principle, so that there are some restrictions
+        regarding user input in to protect the class"""
         if type(value) is not int:
             raise TypeError('y must be an integer')
         if value < 0:
