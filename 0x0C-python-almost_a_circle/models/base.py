@@ -12,28 +12,36 @@ import os
 
 class Base():
     """
-    My baseclass
+    My baseclass, this is the class from which
+    all other classes will inherit, thus, they
+    will access to its attributes and methods
+    including the __init__() method
     """
 
     __nb_instances = 0
 
     def __init__(self, id=None):
         """
-        Initializing method
+        Initializing method to intialize an instance
+        with an optional id.
         """
         self.id = id
 
     @property
     def id(self):
         """
-        A property to retrieve "self.__id" to ensure "Encapsulation"
+        A property to retrive "self.__id" to ensure "Encapsulation"
+        principle, thus, the person can access the private attribute
+        "__id" without messing with the class implementation
         """
         return self.__id
 
     @id.setter
     def id(self, value):
         """
-        A setter to set "self.__id" to ensure "Encapsulation"
+        A setter to set "self.__id" to ensure "Encapsulation" principle,
+        so there is a restriction regarding the value assigned to the
+        attribute "__id" to protect the class from undefined behaviors
         """
         if value is not None:
             self.__id = value
