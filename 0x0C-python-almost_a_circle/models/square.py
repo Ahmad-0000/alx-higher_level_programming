@@ -24,7 +24,7 @@ class Square(Rectangle):
         to intialize size, x and y using "rectangle" class
         initialization method
         '''
-        super().__init__(size, size, x, y)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         '''
@@ -40,7 +40,7 @@ class Square(Rectangle):
         '''
         A property to retrive "size" attribute
         '''
-        return self._Rectangle__width
+        return self._Rectangle__width 
 
     @size.setter
     def size(self, value):
@@ -94,4 +94,4 @@ class Square(Rectangle):
         dict_repr['x'] = self._Rectangle__x
         dict_repr['size'] = self.size
         dict_repr['y'] = self._Rectangle__y
-        return dict_repr
+        return dict_repr 
