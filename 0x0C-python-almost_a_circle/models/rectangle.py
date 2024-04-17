@@ -35,10 +35,6 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """        A setter to set "width" to ensure "Encapsulations"
-        principle, therer are some restrictions regarding
-        the values that can be used to assign to the attribute
-        width"""
         if type(value) is not int:
             raise TypeError('width must be an integer')
         if value <= 0:
@@ -55,10 +51,6 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        """        A setter to set "height" to ensure "Encapsulations"
-        principle, so that there are some restrictions
-        regarding usr input, so the wrong input will no
-        affect the class"""
         if type(value) is not int:
             raise TypeError('height must be an integer')
         if value <= 0:
@@ -74,9 +66,6 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """        A setter to set "x" to ensure "Encapsulations"
-        principle, so therer are some restrictions
-        regardin user input to protect the class"""
         if type(value) is not int:
             raise TypeError('x must be an integer')
         if value < 0:
@@ -92,9 +81,6 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """        A setter to set "y" to ensure "Encapsulations"
-        principle, so that there are some restrictions
-        regarding user input in to protect the class"""
         if type(value) is not int:
             raise TypeError('y must be an integer')
         if value < 0:
