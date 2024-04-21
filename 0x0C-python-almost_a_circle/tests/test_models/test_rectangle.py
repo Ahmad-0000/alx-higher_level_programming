@@ -1,9 +1,9 @@
-import sys
 import unittest
 from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
+
     def test_width(self):
         self.assertEqual(Rectangle(12, 13).width, 12)
 
@@ -53,7 +53,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(Rectangle(12, 12, 12).y, 0)
         self.assertEqual(Rectangle(12, 12, 12, 13).y, 13)
 
-    def test_x_raises(self):
+    def test_y_raises(self):
         self.assertRaises(TypeError, Rectangle, 12, 12, 12, 12.12)
         self.assertRaises(TypeError, Rectangle, 12, 12, 12, "12")
         self.assertRaises(TypeError, Rectangle, 12, 12, 12, True)
@@ -70,7 +70,7 @@ class TestRectangle(unittest.TestCase):
     def test_str_special(self):
         self.assertEqual(Rectangle(12, 13, 14, 15, 16).__str__(), '[Rectangle] (16) 14/15 - 12/13')
 
-    def test_update_1(self):
+    def test_update_args_1(self):
         r = Rectangle(12, 12, 12, 12, 12)
         self.assertEqual(r.id, 12)
         self.assertEqual(r.width, 12)
@@ -84,7 +84,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 12)
         self.assertEqual(r.y, 12)
     
-    def test_update_2(self):
+    def test_update_args_2(self):
         r = Rectangle(12, 12, 12, 12, 12)
         self.assertEqual(r.id, 12)
         self.assertEqual(r.width, 12)
@@ -98,7 +98,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 12)
         self.assertEqual(r.y, 12)
 
-    def test_update_3(self):
+    def test_update_args_3(self):
         r = Rectangle(12, 12, 12, 12, 12)
         self.assertEqual(r.id, 12)
         self.assertEqual(r.width, 12)
@@ -113,7 +113,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.y, 12)
 
 
-    def test_update_4(self):
+    def test_update_4_args(self):
         r = Rectangle(12, 12, 12, 12, 12)
         self.assertEqual(r.id, 12)
         self.assertEqual(r.width, 12)
@@ -127,7 +127,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 4)
         self.assertEqual(r.y, 12)
 
-    def test_update_5(self):
+    def test_update_5_args(self):
         r = Rectangle(12, 12, 12, 12, 12)
         self.assertEqual(r.id, 12)
         self.assertEqual(r.width, 12)
@@ -141,7 +141,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 4)
         self.assertEqual(r.y, 5)
 
-    def test_update_1_raises(self):
+    def test_update_args_1_raises(self):
         r = Rectangle(12, 12, 12, 12, 12)
         self.assertRaises(TypeError, r.update, 12, 12.12)
         self.assertRaises(TypeError, r.update, 12, "12")
@@ -154,7 +154,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(ValueError, r.update, 12, 0)
         self.assertRaises(ValueError, r.update, 12, -1)
 
-    def test_update_2_raises(self):
+    def test_update_args_2_raises(self):
         r = Rectangle(12, 12, 12, 12, 12)
         self.assertRaises(TypeError, r.update, 12, 12, 12.12)
         self.assertRaises(TypeError, r.update, 12, 12, '12')
@@ -167,7 +167,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(ValueError, r.update, 12, 12, 0)
         self.assertRaises(ValueError, r.update, 12, 12, -12)
 
-    def test_update_3_raises(self):
+    def test_update_args_3_raises(self):
         r = Rectangle(12, 12, 12, 12, 12)
         self.assertRaises(TypeError, r.update, 12, 12, 12, 12.12)
         self.assertRaises(TypeError, r.update, 12, 12, 12, '12')
@@ -179,7 +179,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, 12, 12, 12, {1, 2})
         self.assertRaises(ValueError, r.update, 12, 12, 12, -12)
 
-    def test_update_4_raises(self):
+    def test_update_args_4_raises(self):
         r = Rectangle(12, 12, 12, 12, 12)
         self.assertRaises(TypeError, r.update, 12, 12, 12, 12, 12.12)
         self.assertRaises(TypeError, r.update, 12, 12, 12, 12, '12')
@@ -190,3 +190,21 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, 12, 12, 12, 12, (1,))
         self.assertRaises(TypeError, r.update, 12, 12, 12, 12, {1, 2})
         self.assertRaises(ValueError, r.update, 12, 12, 12, 12, -12)
+
+    def test_update_kwargs_1(self):
+        r = Rectangle(1, 1, 1, 1, 1)
+        r.update(12, 12, 12, 12, 12, id=24, width=24, height=24, x=24, y=24)
+        self.assertEqual(r.id, 12)
+        self.assertEqual(r.width, 12)
+        self.assertEqual(r.height, 12)
+        self.assertEqual(r.x, 12)
+        self.assertEqual(r.y, 12)
+
+    def test_update_kwargs_2(self):
+        r = Rectangle(1, 1, 1, 1, 1)
+        r.update(id=12, width=12, height=12, x=12, y=12)
+        self.assertEqual(r.id, 12)
+        self.assertEqual(r.width, 12)
+        self.assertEqual(r.height, 12)
+        self.assertEqual(r.x, 12)
+        self.assertEqual(r.y, 12)
