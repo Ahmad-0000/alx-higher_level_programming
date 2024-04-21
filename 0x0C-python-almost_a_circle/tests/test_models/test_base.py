@@ -1,9 +1,8 @@
 import unittest
 from models.base import Base
 
-class TestId(unittest.TestCase):
+
+class TestBase(unittest.TestCase):
     def test_id(self):
-        temp_obj = Base()
-        self.assertEqual(temp_obj.id, 1)
-        temp_obj = Base(12)
-        self.assertEqual(temp_obj.id, 12)
+        self.assertEqual(Base().id, 1)
+        self.assertEqual(Base(12).id, 12)
