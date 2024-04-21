@@ -18,3 +18,18 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, Rectangle, {1, 2}, 12)
         self.assertRaises(ValueError, Rectangle, 0, 12)
         self.assertRaises(ValueError, Rectangle, -12, 12)
+
+    def test_height(self):
+        self.assertEqual(Rectangle(12, 13).height, 13)
+
+    def test_height_raises(self):
+        self.assertRaises(TypeError, Rectangle, 12, 12.12)
+        self.assertRaises(TypeError, Rectangle, 12, "12")
+        self.assertRaises(TypeError, Rectangle, 12, True)
+        self.assertRaises(TypeError, Rectangle, 12, None)
+        self.assertRaises(TypeError, Rectangle, 12, [])
+        self.assertRaises(TypeError, Rectangle, 12, {})
+        self.assertRaises(TypeError, Rectangle, 12, (1,))
+        self.assertRaises(TypeError, Rectangle, 12, {1, 2})
+        self.assertRaises(ValueError, Rectangle, 12, 0)
+        self.assertRaises(ValueError, Rectangle, 12, -12)
