@@ -139,7 +139,7 @@ class Rectangle(Base):
                 self.id, self.width, self.height, self.x, self.y = l
         elif kwargs:
             keys = kwargs.keys()
-            for key in keys():
+            for key in keys:
                 if key == 'id':
                     self.id = kwargs['id']
                 elif key == 'width':
@@ -147,7 +147,7 @@ class Rectangle(Base):
                 elif key == 'height':
                     self.height = kwargs['height']
                 elif key == 'x':
-                    self.x = kewargs['x']
+                    self.x = kwargs['x']
                 elif key == 'y':
                     self.y = kwargs['y']
 
