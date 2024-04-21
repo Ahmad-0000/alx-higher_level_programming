@@ -122,27 +122,34 @@ class Rectangle(Base):
         A pulic instance method to update the attributes id,
         width, height, x and y
         '''
-        private_attrs = ['__id', '__width', '__height', '__x', '__y']
-        i = 0
         if args:
-            for j in args:
-                if i == 5:
-                    break
-                elif i == 0:
-                    self.__dict__[f'_Base{private_attrs[i]}'] = args[i]
-                else:
-                    self.__dict__[f'_Rectangle{private_attrs[i]}'] = args[i]
-                i += 1
+            l = []
+            for i in args:
+                l.append(i)
+            l = tuple(l)
+            if len(args) == 1:
+                self.id = l[0]
+            elif len(args) == 2:
+                self.id, self.width = l
+            elif len(args) == 3:
+                self.id, self.width, self.height = l
+            elif len(args) == 4:
+                self.id, self.width, self.height, self.x = l
+            elif len(args) >= 5:
+                self.id, self.width, self.height, self.x, self.y = l
         elif kwargs:
             keys = kwargs.keys()
-            for key in keys:
-                if i == 5:
-                    break
+            for key in keys():
                 if key == 'id':
-                    self.__dict__['_Base__id'] = kwargs['id']
-                else:
-                    self.__dict__[f'_Rectangle__{key}'] = kwargs[f'{key}']
-                i += 1
+                    self.id = kwargs['id']
+                elif key == 'width':
+                    self.width = kwargs['width']
+                elif key == 'height':
+                    self.height = kwargs['height']
+                elif key == 'x':
+                    self.x = kewargs['x']
+                elif key == 'y':
+                    self.y = kwargs['y']
 
     def to_dictionary(self):
         '''
