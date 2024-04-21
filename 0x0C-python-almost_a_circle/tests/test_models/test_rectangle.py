@@ -66,3 +66,6 @@ class TestRectangle(unittest.TestCase):
 
     def test_area(self):
         self.assertEqual(Rectangle(12, 12).area(), 144)
+
+    def test_str_special(self):
+        self.assertEqual(Rectangle(12, 13, 14, 15, 16).__str__(), '[Rectangle] (16) 14/15 - 12/13')
