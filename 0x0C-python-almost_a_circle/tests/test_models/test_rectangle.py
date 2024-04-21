@@ -33,3 +33,18 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, Rectangle, 12, {1, 2})
         self.assertRaises(ValueError, Rectangle, 12, 0)
         self.assertRaises(ValueError, Rectangle, 12, -12)
+
+    def test_x(self):
+        self.assertEqual(Rectangle(12, 12).x, 0)
+        self.assertEqual(Rectangle(12, 12, 13).x, 13)
+
+    def test_x_raises(self):
+        self.assertRaises(TypeError, Rectangle, 12, 12, 12.12)
+        self.assertRaises(TypeError, Rectangle, 12, 12, "12")
+        self.assertRaises(TypeError, Rectangle, 12, 12, True)
+        self.assertRaises(TypeError, Rectangle, 12, 12, None)
+        self.assertRaises(TypeError, Rectangle, 12, 12, [])
+        self.assertRaises(TypeError, Rectangle, 12, 12, {})
+        self.assertRaises(TypeError, Rectangle, 12, 12, (1,))
+        self.assertRaises(TypeError, Rectangle, 12, 12, {1,2})
+        self.assertRaises(ValueError, Rectangle, 12, 12, -1)
