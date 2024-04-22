@@ -128,7 +128,7 @@ class Rectangle(Base):
                 my_list.append(i)
             my_list = tuple(my_list)
             if len(args) == 1:
-                self.id = l[0]
+                self.id = my_list[0]
             elif len(args) == 2:
                 self.id, self.width = my_list
             elif len(args) == 3:
