@@ -4,6 +4,42 @@ from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
 
+    def test_id_1(self):
+        r = Rectangle(1, 1, id=12)
+        self.assertEqual(r.id, 12)
+    
+    def test_id_2(self):
+        r = Rectangle(1, 1, id=12.12)
+        self.assertAlmostEqual(r.id, 12.12)
+
+    def test_id_3(self):
+        r = Rectangle(1, 1, id='12')
+        self.assertEqual(r.id, '12')
+
+    def test_id_4(self):
+        r = Rectangle(1, 1, id=None)
+        self.assertNotEqual(r.id, None)
+
+    def test_id_5(self):
+        r = Rectangle(1, 1, id=True)
+        self.assertEqual(r.id, True)
+
+    def test_id_6(self):
+        r = Rectangle(1, 1, id=[12])
+        self.assertEqual(r.id, [12])
+
+    def test_id_7(self):
+        r = Rectangle(1, 1, id={'12':12})
+        self.assertEqual(r.id, {'12':12})
+
+    def test_id_8(self):
+        r = Rectangle(1, 1, id=(12,))
+        self.assertEqual(r.id, (12,))
+
+    def test_id_9(self):
+        r = Rectangle(1, 1, id={12, 13})
+        self.assertEqual(r.id, {12, 13})
+
     def test_width(self):
         self.assertEqual(Rectangle(12, 13).width, 12)
 

@@ -4,8 +4,41 @@ from models.square import Square
 
 class TestSquare(unittest.TestCase):
 
-    def test_id(self):
-        self.assertEqual(Square(5, id=12).id, 12)
+    def test_id_1(self):
+        s_obj = Square(1, id=12)
+        self.assertEqual(s_obj.id, 12)
+
+    def test_id_2(self):
+        s_obj = Square(12, id=12.12)
+        self.assertAlmostEqual(s_obj.id, 12.12)
+
+    def test_id_3(self):
+        s_obj = Square(12, id='12')
+        self.assertEqual(s_obj.id, '12')
+
+    def test_id_4(self):
+        s_obj = Square(12, id=None)
+        self.assertNotEqual(s_obj.id, None)
+
+    def test_id_5(self):
+        s_obj = Square(12, id=True)
+        self.assertEqual(s_obj.id, True)
+
+    def test_id_6(self):
+        s_obj = Square(12, id=[12])
+        self.assertEqual(s_obj.id, [12])
+
+    def test_id_7(self):
+        s_obj = Square(12, id={'12':12})
+        self.assertEqual(s_obj.id, {'12':12})
+
+    def test_id_8(self):
+        s_obj = Square(12, id=(12,))
+        self.assertEqual(s_obj.id, (12,))
+
+    def test_id_9(self):
+        s_obj = Square(12, id={12, 13})
+        self.assertEqual(s_obj.id, {12, 13})
 
     def test_size(self):
         s_obj = Square(12)
