@@ -183,3 +183,18 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, s_obj.update, y=(1,))
         self.assertRaises(TypeError, s_obj.update, y={1,2})
         self.assertRaises(ValueError, s_obj.update, y=-1)
+
+    def test_to_dictionary_method_1(self):
+        s_obj = Square(12, id=15)
+        dictionary_repr = {'size':12, 'x':0, 'y':0, 'id':15}
+        self.assertEqual(s_obj.to_dictionary(), dictionary_repr)
+
+    def test_to_dictionary_method_2(self):
+        s_obj = Square(12, 13, id=15)
+        dictionary_repr = {'size':12, 'x':13, 'y':0, 'id':15}
+        self.assertEqual(s_obj.to_dictionary(), dictionary_repr)
+
+    def test_to_dictionary_method_3(self):
+        s_obj = Square(12, 13, 14, id=15)
+        dictionary_repr = {'size':12, 'x':13, 'y':14, 'id':15}
+        self.assertEqual(s_obj.to_dictionary(), dictionary_repr)
