@@ -20,3 +20,33 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, Square, {1,2})
         self.assertRaises(ValueError, Square, 0)
         self.assertRaises(ValueError, Square, -12)
+
+    def test_x(self):
+        self.assertEqual(Square(5).x, 0)
+        self.assertEqual(Square(5, x=12).x, 12)
+
+    def test_x_raises(self):
+        self.assertRaises(TypeError, Square, 12, 12.12)
+        self.assertRaises(TypeError, Square, 12, '12')
+        self.assertRaises(TypeError, Square, 12, True)
+        self.assertRaises(TypeError, Square, 12, None)
+        self.assertRaises(TypeError, Square, 12, [])
+        self.assertRaises(TypeError, Square, 12, {})
+        self.assertRaises(TypeError, Square, 12, (1,))
+        self.assertRaises(TypeError, Square, 12, {1,2})
+        self.assertRaises(ValueError, Square, 12, -12)
+
+    def test_y(self):
+        self.assertEqual(Square(5).y, 0)
+        self.assertEqual(Square(5, y=12).y, 12)
+
+    def test_y_raises(self):
+        self.assertRaises(TypeError, Square, 12, 12, 12.12)
+        self.assertRaises(TypeError, Square, 12, 12, '12')
+        self.assertRaises(TypeError, Square, 12, 12, True)
+        self.assertRaises(TypeError, Square, 12, 12, None)
+        self.assertRaises(TypeError, Square, 12, 12, [])
+        self.assertRaises(TypeError, Square, 12, 12, {})
+        self.assertRaises(TypeError, Square, 12, 12, (1,))
+        self.assertRaises(TypeError, Square, 12, 12, {1,2})
+        self.assertRaises(ValueError, Square, 12, 12, -12)
