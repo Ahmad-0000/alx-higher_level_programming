@@ -44,6 +44,10 @@ class TestSquare(unittest.TestCase):
         s_obj = Square(12, id={12, 13})
         self.assertEqual(s_obj.id, {12, 13})
 
+    def test_id_10(self):
+        s_obj = Square(1, id=12j+12)
+        self.assertEqual(s_obj.id, 12j+12)
+
     def test_size(self):
         s_obj = Square(12)
         self.assertEqual(s_obj.size, 12)

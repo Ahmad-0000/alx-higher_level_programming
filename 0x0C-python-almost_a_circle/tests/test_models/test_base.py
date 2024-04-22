@@ -46,3 +46,7 @@ class TestBase(unittest.TestCase):
     def test_id_9(self):
         b = Base(id={12, 13})
         self.assertEqual(b.id, {12, 13})
+
+    def test_id_10(self):
+        b = Base(id=12j+12)
+        self.assertEqual(b.id, 12j+12)

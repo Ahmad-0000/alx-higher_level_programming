@@ -43,6 +43,10 @@ class TestRectangle(unittest.TestCase):
     def test_id_9(self):
         r = Rectangle(1, 1, id={12, 13})
         self.assertEqual(r.id, {12, 13})
+    
+    def test_id_10(self):
+        r = Rectangle(1, 1, id=12j+12)
+        self.assertEqual(r.id, 12j+12)
 
     def test_width(self):
         self.assertEqual(Rectangle(12, 13).width, 12)
