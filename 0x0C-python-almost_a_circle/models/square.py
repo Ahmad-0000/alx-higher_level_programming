@@ -61,29 +61,29 @@ class Square(Rectangle):
         "kwargs" will be used for updating
         '''
         if args:
-            l = []
+            my_list = []
             for arg in args:
                 l.append(arg)
-            l = tuple(l)
-            if len(l) == 1:
+            my_list = tuple(l)
+            if len(my_list) == 1:
                 self.id = args[0]
-            elif len(l) == 2:
+            elif len(my_list) == 2:
                 self.id, self.size = args
-            elif len(l) == 3:
+            elif len(my_list) == 3:
                 self.id, self.size, self.x = args
-            elif len(l) == 4:
+            elif len(my_list) == 4:
                 self.id, self.size, self.x, self.y = args
         elif kwargs:
-           keys = kwargs.keys()
-           for key in keys:
-               if key == "id":
-                   self.id = kwargs[f'{key}']
-               if key == "size":
-                   self.size = kwargs[f'{key}']
-               if key == "x":
-                   self.x = kwargs[f'{key}']
-               if key == "y":
-                   self.y = kwargs[f'{key}']
+            keys = kwargs.keys()
+            for key in keys:
+                if key == "id":
+                    self.id = kwargs[f'{key}']
+                if key == "size":
+                    self.size = kwargs[f'{key}']
+                if key == "x":
+                    self.x = kwargs[f'{key}']
+                if key == "y":
+                    self.y = kwargs[f'{key}']
 
     def to_dictionary(self):
         '''
