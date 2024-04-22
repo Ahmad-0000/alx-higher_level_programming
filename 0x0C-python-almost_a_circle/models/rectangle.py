@@ -123,20 +123,20 @@ class Rectangle(Base):
         width, height, x and y
         '''
         if args:
-            l = []
+            my_list = []
             for i in args:
-                l.append(i)
-            l = tuple(l)
+                my_list.append(i)
+            my_list = tuple(my_list)
             if len(args) == 1:
                 self.id = l[0]
             elif len(args) == 2:
-                self.id, self.width = l
+                self.id, self.width = my_list
             elif len(args) == 3:
-                self.id, self.width, self.height = l
+                self.id, self.width, self.height = my_list
             elif len(args) == 4:
-                self.id, self.width, self.height, self.x = l
+                self.id, self.width, self.height, self.x = my_list
             elif len(args) >= 5:
-                self.id, self.width, self.height, self.x, self.y = l
+                self.id, self.width, self.height, self.x, self.y = my_list
         elif kwargs:
             keys = kwargs.keys()
             for key in keys:
