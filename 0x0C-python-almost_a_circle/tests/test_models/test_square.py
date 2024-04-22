@@ -50,3 +50,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, Square, 12, 12, (1,))
         self.assertRaises(TypeError, Square, 12, 12, {1,2})
         self.assertRaises(ValueError, Square, 12, 12, -12)
+
+    def test___str__(self):
+        self.assertEqual(Square(6, id=12).__str__(), '[Square] (12) 0/0 - 6')
+        self.assertEqual(Square(6, 12, 12, id=12).__str__(), '[Square] (12) 12/12 - 6')
