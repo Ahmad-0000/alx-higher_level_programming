@@ -254,3 +254,25 @@ class TestSquare(unittest.TestCase):
         dict_repr = s_obj.to_dictionary()
         self.assertIs(type(dict_repr), dict)
         self.assertEqual(dict_repr, hard_dict_repr)
+
+    def test_to_json_string_method_Rectangle(self):
+        s = Square(12, 12, 12, 12)
+        dict_repr = s.to_dictionary()
+        self.assertIs(type(dict_repr), dict)
+        json_repr = s.to_json_string([dict_repr])
+        self.assertEqual(json_repr, '[{"id": 12, "x": 12, "size": 12, "y": 12}]')
+        self.assertIs(type(json_repr), str)
+
+    def test_to_json_string_method_empty(self):
+        dict_repr = {}
+        self.assertIs(type(dict_repr), dict)
+        json_repr = Square.to_json_string(dict_repr)
+        self.assertIs(type(json_repr), str)
+        self.assertEqual(json_repr, '"[]"')
+
+    def test_to_json_string_method_None(self):
+        dict_repr = None
+        self.assertIs(type(dict_repr), type(None))
+        json_repr = Square.to_json_string(dict_repr)
+        self.assertIs(type(json_repr), str)
+        self.assertEqual(json_repr, '"[]"')
