@@ -71,7 +71,7 @@ class Square(Rectangle):
                 self.id, self.size = args
             elif len(my_list) == 3:
                 self.id, self.size, self.x = args
-            elif len(my_list) == 4:
+            elif len(my_list) >= 4:
                 self.id, self.size, self.x, self.y = args
         elif kwargs:
             keys = kwargs.keys()
