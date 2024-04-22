@@ -60,6 +60,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, Rectangle, {}, 12)
         self.assertRaises(TypeError, Rectangle, (1,), 12)
         self.assertRaises(TypeError, Rectangle, {1, 2}, 12)
+        self.assertRaises(TypeError, Rectangle, 12j+12, 12)
         self.assertRaises(ValueError, Rectangle, 0, 12)
         self.assertRaises(ValueError, Rectangle, -12, 12)
 
@@ -75,6 +76,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, Rectangle, 12, {})
         self.assertRaises(TypeError, Rectangle, 12, (1,))
         self.assertRaises(TypeError, Rectangle, 12, {1, 2})
+        self.assertRaises(TypeError, Rectangle, 12, 12j+12)
         self.assertRaises(ValueError, Rectangle, 12, 0)
         self.assertRaises(ValueError, Rectangle, 12, -12)
 
@@ -91,6 +93,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, Rectangle, 12, 12, {})
         self.assertRaises(TypeError, Rectangle, 12, 12, (1,))
         self.assertRaises(TypeError, Rectangle, 12, 12, {1,2})
+        self.assertRaises(TypeError, Rectangle, 12, 12, 12j+12)
         self.assertRaises(ValueError, Rectangle, 12, 12, -1)
 
     def test_y(self):
@@ -106,6 +109,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, Rectangle, 12, 12, 12, {})
         self.assertRaises(TypeError, Rectangle, 12, 12, 12, (1,))
         self.assertRaises(TypeError, Rectangle, 12, 12, 12, {1,2})
+        self.assertRaises(TypeError, Rectangle, 12, 12, 12, 12j+12)
         self.assertRaises(ValueError, Rectangle, 12, 12, 12, -1)
 
     def test_area(self):
@@ -195,6 +199,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, 12, {})
         self.assertRaises(TypeError, r.update, 12, (1,))
         self.assertRaises(TypeError, r.update, 12, {1,2})
+        self.assertRaises(TypeError, r.update, 12, 12j+12)
         self.assertRaises(ValueError, r.update, 12, 0)
         self.assertRaises(ValueError, r.update, 12, -1)
 
@@ -208,6 +213,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, 12, 12, {})
         self.assertRaises(TypeError, r.update, 12, 12, (1,))
         self.assertRaises(TypeError, r.update, 12, 12, {1, 2})
+        self.assertRaises(TypeError, r.update, 12, 12, 12j+12)
         self.assertRaises(ValueError, r.update, 12, 12, 0)
         self.assertRaises(ValueError, r.update, 12, 12, -12)
 
@@ -221,6 +227,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, 12, 12, 12, {})
         self.assertRaises(TypeError, r.update, 12, 12, 12, (1,))
         self.assertRaises(TypeError, r.update, 12, 12, 12, {1, 2})
+        self.assertRaises(TypeError, r.update, 12, 12, 12, 12j+12)
         self.assertRaises(ValueError, r.update, 12, 12, 12, -12)
 
     def test_update_args_4_raises(self):
@@ -233,6 +240,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, 12, 12, 12, 12, {})
         self.assertRaises(TypeError, r.update, 12, 12, 12, 12, (1,))
         self.assertRaises(TypeError, r.update, 12, 12, 12, 12, {1, 2})
+        self.assertRaises(TypeError, r.update, 12, 12, 12, 12, 12j+12)
         self.assertRaises(ValueError, r.update, 12, 12, 12, 12, -12)
 
     def test_update_kwargs_1(self):
@@ -263,6 +271,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, width={})
         self.assertRaises(TypeError, r.update, width=(1,))
         self.assertRaises(TypeError, r.update, width={1,2})
+        self.assertRaises(TypeError, r.update, width=12j+12)
         self.assertRaises(ValueError, r.update, width=0)
         self.assertRaises(ValueError, r.update, width=-12)
 
@@ -276,6 +285,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, height={})
         self.assertRaises(TypeError, r.update, height=(1,))
         self.assertRaises(TypeError, r.update, height={1,2})
+        self.assertRaises(TypeError, r.update, height=12j+12)
         self.assertRaises(ValueError, r.update, height=0)
         self.assertRaises(ValueError, r.update, height=-12)
 
@@ -289,6 +299,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, x={})
         self.assertRaises(TypeError, r.update, x=(1,))
         self.assertRaises(TypeError, r.update, x={1,2})
+        self.assertRaises(TypeError, r.update, x=12j+12)
         self.assertRaises(ValueError, r.update, x=-12)
 
     def test_update_kwargs_y_raises(self):
@@ -301,6 +312,7 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, y={})
         self.assertRaises(TypeError, r.update, y=(1,))
         self.assertRaises(TypeError, r.update, y={1,2})
+        self.assertRaises(TypeError, r.update, y=12j+12)
         self.assertRaises(ValueError, r.update, y=-12)
 
     def test_to_dictionary_method_1(self):

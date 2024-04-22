@@ -63,6 +63,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, Square, {})
         self.assertRaises(TypeError, Square, (1,))
         self.assertRaises(TypeError, Square, {1,2})
+        self.assertRaises(TypeError, Square, 12j+12)
         self.assertRaises(ValueError, Square, 0)
         self.assertRaises(ValueError, Square, -12)
 
@@ -79,6 +80,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, Square, 12, {})
         self.assertRaises(TypeError, Square, 12, (1,))
         self.assertRaises(TypeError, Square, 12, {1,2})
+        self.assertRaises(TypeError, Square, 12, 12j+12)
         self.assertRaises(ValueError, Square, 12, -12)
 
     def test_y(self):
@@ -94,6 +96,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, Square, 12, 12, {})
         self.assertRaises(TypeError, Square, 12, 12, (1,))
         self.assertRaises(TypeError, Square, 12, 12, {1,2})
+        self.assertRaises(TypeError, Square, 12, 12, 12j+12)
         self.assertRaises(ValueError, Square, 12, 12, -12)
 
     def test_area(self):
@@ -161,6 +164,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, s_obj.update, 12, {})
         self.assertRaises(TypeError, s_obj.update, 12, (1,))
         self.assertRaises(TypeError, s_obj.update, 12, {1,2})
+        self.assertRaises(TypeError, s_obj.update, 12, 12j+12)
         self.assertRaises(ValueError, s_obj.update, 12, 0)
         self.assertRaises(ValueError, s_obj.update, 12, -1)
 
@@ -174,6 +178,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, s_obj.update, 12, 12, {})
         self.assertRaises(TypeError, s_obj.update, 12, 12, (1,))
         self.assertRaises(TypeError, s_obj.update, 12, 12, {1,2})
+        self.assertRaises(TypeError, s_obj.update, 12, 12, 12j+12)
         self.assertRaises(ValueError, s_obj.update, 12, 12, -1)
 
     def test_update_args_3_raises(self):
@@ -186,6 +191,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, s_obj.update, 12, 12, 12, {})
         self.assertRaises(TypeError, s_obj.update, 12, 12, 12, (1,))
         self.assertRaises(TypeError, s_obj.update, 12, 12, 12, {1,2})
+        self.assertRaises(TypeError, s_obj.update, 12, 12, 12, 12j+12)
         self.assertRaises(ValueError, s_obj.update, 12, 12, 12, -1)
 
     def test_update_kwargs_size_raises(self):
@@ -198,6 +204,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, s_obj.update, size={})
         self.assertRaises(TypeError, s_obj.update, size=(1,))
         self.assertRaises(TypeError, s_obj.update, size={1,2})
+        self.assertRaises(TypeError, s_obj.update, size=12j+12)
         self.assertRaises(ValueError, s_obj.update, size=0)
         self.assertRaises(ValueError, s_obj.update, size=-1)
 
@@ -211,6 +218,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, s_obj.update, x={})
         self.assertRaises(TypeError, s_obj.update, x=(1,))
         self.assertRaises(TypeError, s_obj.update, x={1,2})
+        self.assertRaises(TypeError, s_obj.update, x=12j+12)
         self.assertRaises(ValueError, s_obj.update, x=-1)
 
     def test_update_kwargs_y_raises(self):
@@ -223,6 +231,7 @@ class TestSquare(unittest.TestCase):
         self.assertRaises(TypeError, s_obj.update, y={})
         self.assertRaises(TypeError, s_obj.update, y=(1,))
         self.assertRaises(TypeError, s_obj.update, y={1,2})
+        self.assertRaises(TypeError, s_obj.update, y=12j+12)
         self.assertRaises(ValueError, s_obj.update, y=-1)
 
     def test_to_dictionary_method_1(self):
