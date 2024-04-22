@@ -63,8 +63,8 @@ class Square(Rectangle):
         if args:
             my_list = []
             for arg in args:
-                l.append(arg)
-            my_list = tuple(l)
+                my_list.append(arg)
+            my_list = tuple(my_list)
             if len(my_list) == 1:
                 self.id = args[0]
             elif len(my_list) == 2:
