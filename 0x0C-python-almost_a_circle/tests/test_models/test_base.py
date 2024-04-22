@@ -1,5 +1,8 @@
 import unittest
+import json
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase(unittest.TestCase):
@@ -50,3 +53,19 @@ class TestBase(unittest.TestCase):
     def test_id_10(self):
         b = Base(id=12j+12)
         self.assertEqual(b.id, 12j+12)
+
+    def test_to_json_stirng_method_Rectangle(self):
+        r = Rectangle(12, 12, 12, 12, 12)
+        dict_repr = r.to_dictionary()
+        self.assertIs(type(dict_repr), dict)
+        json_repr = r.to_json_string([dict_repr])
+        self.assertEqual(json_repr, '[{"x": 12, "y": 12, "id": 12, "height": 12, "width": 12}]')
+        self.assertIs(type(json_repr), str)
+
+    def test_to_json_stirng_method_Square(self):
+        s = Square(12, 12, 12, 12)
+        dict_repr = s.to_dictionary()
+        self.assertIs(type(dict_repr), dict)
+        json_repr = s.to_json_string([dict_repr])
+        self.assertEqual(json_repr, '[{"id": 12, "x": 12, "size": 12, "y": 12}]')
+        self.assertIs(type(json_repr), str)

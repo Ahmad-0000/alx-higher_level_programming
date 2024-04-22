@@ -236,15 +236,21 @@ class TestSquare(unittest.TestCase):
 
     def test_to_dictionary_method_1(self):
         s_obj = Square(12, id=15)
-        dictionary_repr = {'size':12, 'x':0, 'y':0, 'id':15}
-        self.assertEqual(s_obj.to_dictionary(), dictionary_repr)
+        hard_dict_repr = {'size':12, 'x':0, 'y':0, 'id':15}
+        dict_repr = s_obj.to_dictionary()
+        self.assertIs(type(dict_repr), dict)
+        self.assertEqual(dict_repr, hard_dict_repr)
 
     def test_to_dictionary_method_2(self):
         s_obj = Square(12, 13, id=15)
-        dictionary_repr = {'size':12, 'x':13, 'y':0, 'id':15}
-        self.assertEqual(s_obj.to_dictionary(), dictionary_repr)
+        hard_dict_repr = {'size':12, 'x':13, 'y':0, 'id':15}
+        dict_repr = s_obj.to_dictionary()
+        self.assertIs(type(dict_repr), dict)
+        self.assertEqual(dict_repr, hard_dict_repr)
 
     def test_to_dictionary_method_3(self):
         s_obj = Square(12, 13, 14, id=15)
-        dictionary_repr = {'size':12, 'x':13, 'y':14, 'id':15}
-        self.assertEqual(s_obj.to_dictionary(), dictionary_repr)
+        hard_dict_repr = {'size':12, 'x':13, 'y':14, 'id':15}
+        dict_repr = s_obj.to_dictionary()
+        self.assertIs(type(dict_repr), dict)
+        self.assertEqual(dict_repr, hard_dict_repr)
