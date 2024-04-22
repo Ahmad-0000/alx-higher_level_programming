@@ -54,7 +54,7 @@ class TestBase(unittest.TestCase):
         b = Base(id=12j+12)
         self.assertEqual(b.id, 12j+12)
 
-    def test_to_json_stirng_method_Rectangle(self):
+    def test_to_json_string_method_Rectangle(self):
         r = Rectangle(12, 12, 12, 12, 12)
         dict_repr = r.to_dictionary()
         self.assertIs(type(dict_repr), dict)
@@ -62,10 +62,24 @@ class TestBase(unittest.TestCase):
         self.assertEqual(json_repr, '[{"x": 12, "y": 12, "id": 12, "height": 12, "width": 12}]')
         self.assertIs(type(json_repr), str)
 
-    def test_to_json_stirng_method_Square(self):
+    def test_to_json_string_method_Square(self):
         s = Square(12, 12, 12, 12)
         dict_repr = s.to_dictionary()
         self.assertIs(type(dict_repr), dict)
         json_repr = s.to_json_string([dict_repr])
         self.assertEqual(json_repr, '[{"id": 12, "x": 12, "size": 12, "y": 12}]')
         self.assertIs(type(json_repr), str)
+
+    def test_to_json_string_method_empty(self):
+        dict_repr = {}
+        self.assertIs(type(dict_repr), dict)
+        json_repr = Base.to_json_string(dict_repr)
+        self.assertIs(type(json_repr), str)
+        self.assertEqual(json_repr, '"[]"')
+
+    def test_to_json_string_method_None(self):
+        dict_repr = None
+        self.assertIs(type(dict_repr), type(None))
+        json_repr = Base.to_json_string(dict_repr)
+        self.assertIs(type(json_repr), str)
+        self.assertEqual(json_repr, '"[]"')
