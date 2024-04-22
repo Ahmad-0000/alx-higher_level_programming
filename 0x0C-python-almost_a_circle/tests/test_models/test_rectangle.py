@@ -4,6 +4,10 @@ from models.rectangle import Rectangle
 
 class TestRectangle(unittest.TestCase):
 
+    def test_id_0(self):
+        r = Rectangle(1, 1, id=-12)
+        self.assertEqual(r.id, -12)
+
     def test_id_1(self):
         r = Rectangle(1, 1, id=12)
         self.assertEqual(r.id, 12)

@@ -8,6 +8,9 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base().id, 1)
         self.assertEqual(Base().id, 2)
 
+    def test_id_0(self):
+        self.assertEqual(Base(id=-12).id, -12)
+
     def test_id_1(self):
         b = Base(12)
         self.assertEqual(b.id, 12)
