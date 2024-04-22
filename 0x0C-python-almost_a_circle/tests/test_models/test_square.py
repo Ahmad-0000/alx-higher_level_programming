@@ -7,7 +7,10 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(Square(5, id=12).id, 12)
 
     def test_size(self):
-        self.assertEqual(Square(12).size, 12)
+        s_obj = Square(12)
+        self.assertEqual(s_obj.size, 12)
+        self.assertEqual(s_obj.x, 0)
+        self.assertEqual(s_obj.y, 0)
 
     def test_size_raises(self):
         self.assertRaises(TypeError, Square, 12.12)
