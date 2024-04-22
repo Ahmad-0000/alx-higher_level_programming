@@ -258,3 +258,18 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, r.update, y=(1,))
         self.assertRaises(TypeError, r.update, y={1,2})
         self.assertRaises(ValueError, r.update, y=-12)
+
+    def test_to_dictionary_method_1(self):
+        r = Rectangle(12, 13, id=16)
+        dictionary_repr = {'width':12, 'height':13, 'x':0, 'y':0, 'id':16}
+        self.assertEqual(r.to_dictionary(), dictionary_repr)
+
+    def test_to_dictionary_method_2(self):
+        r = Rectangle(12, 13, 14, id=16)
+        dictionary_repr = {'width':12, 'height':13, 'x':14, 'y':0, 'id':16}
+        self.assertEqual(r.to_dictionary(), dictionary_repr)
+
+    def test_to_dictionary_method_3(self):
+        r = Rectangle(12, 13, 14, 15, id=16)
+        dictionary_repr = {'width':12, 'height':13, 'x':14, 'y':15, 'id':16}
+        self.assertEqual(r.to_dictionary(), dictionary_repr)
