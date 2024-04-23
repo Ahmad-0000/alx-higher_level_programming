@@ -111,8 +111,8 @@ class Base():
             return_value = []
             with open(filename, encoding="utf-8") as my_file:
                 file_list = cls.from_json_string(my_file.read())
-                for obj in file_list:
-                    return_value.append(cls.create(**obj))
+                for dictionary in file_list:
+                    return_value.append(cls.create(**dictionary))
                 return return_value
         else:
             return []
