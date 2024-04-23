@@ -474,3 +474,22 @@ class TestRectangle(unittest.TestCase):
         self.assertNotEqual(r1, r2)
         self.assertIsNot(r1, r2)
         self.assertIsInstance(r2, Rectangle)
+
+    def test_load_from_file_exists(self):
+        filename = "Rectangle.json"
+        r1 = Rectangle(12, 12, 12, 12)
+        r2 = Rectangle(24, 24, 24, 24)
+        r3 = Rectangle(48, 48, 48, 48)
+        Rs_list_input = [r1, r2, r3]
+        Rectangle.save_to_file(Rs_list_input)
+        Rs_list_output = Rectangle.load_from_file()
+        for obj in Rs_list_output:
+            with self.subTest(obj=obj):
+                self.assertIsInstance(obj, Rectangle)
+
+    def test_load_from_file_not_exists(self):
+        if os.path.isfile("Rectangle.json"):
+            os.remove("Rectangle.json")
+        Rs_list_output = Rectangle.load_from_file()
+        self.assertEqual(len(Rs_list_output), 0)
+        self.assertIs(type(Rs_list_output), list)

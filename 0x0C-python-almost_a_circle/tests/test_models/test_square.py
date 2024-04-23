@@ -393,3 +393,22 @@ class TestSquare(unittest.TestCase):
         self.assertNotEqual(s1, s2)
         self.assertIsNot(s1, s2)
         self.assertIsInstance(s2, Square)
+
+    def test_load_from_file_exists(self):
+        filename = "Square.json"
+        s1 = Square(12, 12, 12, 12)
+        s2 = Square(24, 24, 24, 24)
+        s3 = Square(48, 48, 48, 48)
+        Ss_list_input = [s1, s2, s3]
+        Square.save_to_file(Ss_list_input)
+        Ss_list_output = Square.load_from_file()
+        for obj in Ss_list_output:
+            with self.subTest(obj=obj):
+                self.assertIsInstance(obj, Square)
+
+    def test_load_from_file_not_exists(self):
+        if os.path.isfile("Square.json"):
+            os.remove("Square.json")
+        Ss_list_output = Square.load_from_file()
+        self.assertEqual(len(Ss_list_output), 0)
+        self.assertIs(type(Ss_list_output), list)
