@@ -79,7 +79,7 @@ class Base():
         A staticmethod to convert a JSON string
         representation into a python object.
         '''
-        if json_string is None or len(json_string) == 0:
+        if json_string is None or json_string == '[]':
             return []
         else:
             return json.loads(json_string)
