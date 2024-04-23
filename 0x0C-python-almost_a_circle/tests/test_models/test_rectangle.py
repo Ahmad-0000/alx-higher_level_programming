@@ -464,3 +464,11 @@ class TestRectangle(unittest.TestCase):
         from_json = Rectangle.from_json_string(None)
         self.assertEqual(from_json, [])
         self.assertIs(type(from_json), list)
+
+    def test_create_method(self):
+        r1 = Rectangle(12, 12, 12, 12)
+        r1_dict = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dict)
+        r2_dict = r2.to_dictionary()
+        self.assertEqual(r1_dict, r2_dict)
+        self.assertIsInstance(r2, Rectangle)

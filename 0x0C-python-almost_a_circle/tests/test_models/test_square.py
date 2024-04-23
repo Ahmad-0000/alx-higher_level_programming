@@ -383,3 +383,11 @@ class TestSquare(unittest.TestCase):
         from_json = Square.from_json_string(None)
         self.assertEqual(from_json, [])
         self.assertIs(type(from_json), list)
+
+    def test_create_method(self):
+        s1 = Square(12, 12, 12, 12)
+        s1_dict = s1.to_dictionary()
+        s2 = Square.create(**s1_dict)
+        s2_dict = s2.to_dictionary()
+        self.assertEqual(s1_dict, s2_dict)
+        self.assertIsInstance(s2, Square)
