@@ -1,4 +1,6 @@
 import unittest
+import os
+import json
 from models.square import Square
 
 
@@ -331,3 +333,35 @@ class TestSquare(unittest.TestCase):
         json_repr = Square.to_json_string(dict_repr)
         self.assertIs(type(json_repr), str)
         self.assertEqual(json_repr, '"[]"')
+
+    def test_save_to_file_method_0(self):
+        s1 = Square(10, 7, 2, 8)
+        s2 = Square(2, 4)
+        Square.save_to_file([s1, s2])
+        self.assertTrue(os.path.isfile("Square.json"))
+        with open("Square.json", 'r', encoding='utf') as my_file:
+            exp_output = json.dumps([s1.to_dictionary(), s2.to_dictionary()])
+            self.assertEqual(my_file.read(), exp_output)
+
+    def test_save_to_file_method_1(self):
+        s3 = Square(14, 74, 122, 38)
+        s4 = Square(62, 45)
+        Square.save_to_file([s3, s4])
+        self.assertTrue(os.path.isfile("Square.json"))
+        with open("Square.json", 'r', encoding='utf') as my_file:
+            exp_output = json.dumps([s3.to_dictionary(), s4.to_dictionary()])
+            self.assertEqual(my_file.read(), exp_output)
+
+    def test_save_to_file_method_2(self):
+        Square.save_to_file([])
+        self.assertTrue(os.path.isfile("Square.json"))
+        with open("Square.json", 'r', encoding='utf') as my_file:
+            exp_output = '"[]"'
+            self.assertEqual(my_file.read(), exp_output)
+
+    def test_save_to_file_method_3(self):
+        Square.save_to_file(None)
+        self.assertTrue(os.path.isfile("Square.json"))
+        with open("Square.json", 'r', encoding='utf') as my_file:
+            exp_output = '"[]"'
+            self.assertEqual(my_file.read(), exp_output)
