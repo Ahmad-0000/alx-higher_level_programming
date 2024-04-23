@@ -365,3 +365,21 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", 'r', encoding='utf') as my_file:
             exp_output = '"[]"'
             self.assertEqual(my_file.read(), exp_output)
+
+    def test_form_josn_string_method_0(self):
+        s = Square(12, 12, 12, 12)
+        json_string = json.dumps(s.to_dictionary())
+        from_json = Square.from_json_string(json_string)
+        self.assertEqual(from_json, s.to_dictionary())
+        self.assertIs(type(from_json), dict)
+
+    def test_form_josn_string_method_1(self):
+        json_string = json.dumps([])
+        from_json = Square.from_json_string(json_string)
+        self.assertEqual(from_json, [])
+        self.assertIs(type(from_json), list)
+
+    def test_form_josn_string_method_2(self):
+        from_json = Square.from_json_string(None)
+        self.assertEqual(from_json, [])
+        self.assertIs(type(from_json), list)

@@ -446,3 +446,21 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.json", 'r', encoding='utf') as my_file:
             exp_output = '"[]"'
             self.assertEqual(my_file.read(), exp_output)
+
+    def test_form_josn_string_method_0(self):
+        r1 = Rectangle(12, 12, 12, 12)
+        json_string = json.dumps(r1.to_dictionary())
+        from_json = Rectangle.from_json_string(json_string)
+        self.assertEqual(from_json, r1.to_dictionary())
+        self.assertIs(type(from_json), dict)
+
+    def test_form_josn_string_method_1(self):
+        json_string = json.dumps([])
+        from_json = Rectangle.from_json_string(json_string)
+        self.assertEqual(from_json, [])
+        self.assertIs(type(from_json), list)
+
+    def test_form_josn_string_method_2(self):
+        from_json = Rectangle.from_json_string(None)
+        self.assertEqual(from_json, [])
+        self.assertIs(type(from_json), list)
