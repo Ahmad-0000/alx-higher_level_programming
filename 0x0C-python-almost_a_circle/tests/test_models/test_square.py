@@ -390,4 +390,6 @@ class TestSquare(unittest.TestCase):
         s2 = Square.create(**s1_dict)
         s2_dict = s2.to_dictionary()
         self.assertEqual(s1_dict, s2_dict)
+        self.assertNotEqual(s1, s2)
+        self.assertIsNot(s1, s2)
         self.assertIsInstance(s2, Square)

@@ -471,4 +471,6 @@ class TestRectangle(unittest.TestCase):
         r2 = Rectangle.create(**r1_dict)
         r2_dict = r2.to_dictionary()
         self.assertEqual(r1_dict, r2_dict)
+        self.assertNotEqual(r1, r2)
+        self.assertIsNot(r1, r2)
         self.assertIsInstance(r2, Rectangle)
