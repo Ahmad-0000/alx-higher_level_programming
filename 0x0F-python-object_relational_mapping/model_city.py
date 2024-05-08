@@ -8,6 +8,9 @@ from sqlalchemy import Integer, Column, String, ForeignKey
 
 
 class City(Base):
+    """
+    A class to be mapped to the table "cities" in a mysql database
+    """
     __tablename__ = "cities"
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
