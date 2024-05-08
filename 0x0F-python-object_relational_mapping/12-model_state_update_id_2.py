@@ -20,7 +20,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    stmt = update(State).where(State.id = 2).values(name="New Mexico")
+    stmt = update(State).where(State.id == 2).values(name="New Mexico")
     session.execute(stmt)
     session.commit()
     session.close()
