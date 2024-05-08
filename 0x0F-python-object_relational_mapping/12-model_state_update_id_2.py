@@ -12,15 +12,15 @@ if __name__ == "__main__":
     from sqlalchemy.orm import sessionmaker
     from model_state import Base, State
 
-    user = argv[1]
+    usr = argv[1]
     pawd = argv[2]
     db = argv[3]
 
-    engine = create_engine(f"mysql+mysqldb://{user}:{pawd}@localhost:3306/{db}")
+    engine = create_engine(f"mysql+mysqldb://{usr}:{pawd}@localhost:3306/{db}")
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    stmt = update(State).where(State.id).values(name="New Mexico")
+    stmt = update(State).where(State.id = 2).values(name="New Mexico")
     session.execute(stmt)
     session.commit()
     session.close()
