@@ -1,4 +1,5 @@
--- The script used with the solution file "4-citites_by_state.sql"
+-- The script used with the solution files "4-citites_by_state.sql"
+-- and "5-filter_cities.py"
 CREATE DATABASE IF NOT EXISTS hbtn_0e_4_usa;
 USE hbtn_0e_4_usa;
 CREATE TABLE IF NOT EXISTS states ( 
@@ -20,4 +21,3 @@ INSERT INTO cities (state_id, name) VALUES (2, "Page"), (2, "Phoenix");
 INSERT INTO cities (state_id, name) VALUES (3, "Dallas"), (3, "Houston"), (3, "Austin");
 INSERT INTO cities (state_id, name) VALUES (4, "New York");
 INSERT INTO cities (state_id, name) VALUES (5, "Las Vegas"), (5, "Reno"), (5, "Henderson"), (5, "Carson City");
-
