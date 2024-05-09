@@ -10,6 +10,7 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *p;
+	char i = 0;
 
 	if (list == NULL)
 		return (0);
@@ -18,7 +19,15 @@ int check_cycle(listint_t *list)
 	{
 		if (list->next == p)
 			return (1);
+		if (i == 4)
+		{
+			if (list->next == p)
+				return (1);
+			p = list->next;
+			i = 0;
+		}
 		list = list->next;
+		i++;
 	}
 	return (0);
 }
