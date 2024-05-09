@@ -24,6 +24,8 @@ int check_cycle(listint_t *list)
 			if (list->next == p)
 				return (1);
 			p = list->next;
+			if (list == p)
+				return (1);
 			i = 0;
 		}
 		list = list->next;
