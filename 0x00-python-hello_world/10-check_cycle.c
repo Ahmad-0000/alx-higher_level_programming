@@ -17,10 +17,8 @@ int check_cycle(listint_t *list)
 	while (list->next != NULL)
 	{
 		if (list->next == p)
-			break;
+			return (1);
 		list = list->next;
 	}
-	if (list->next == p)
-		return (1);
 	return (0);
 }
