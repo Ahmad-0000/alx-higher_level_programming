@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""A script that takes a URL and a letter as a paremeter, sends it
-to a server and handles JSON response bodies"""
+"""A script that takes a letter as a paremeter, sends it to 
+"http://0.0.0.0:5000/search_user" and handles JSON response bodies"""
 import requests
 import sys
 
 
 if __name__ == "__main__":
-    url = sys.argv[1]
+    url = "http://0.0.0.0:5000/search_user"
     letter = {'q': ""}
     if len(sys.argv) > 1:
-        letter['1'] = sys.argv[2]
+        letter['q'] = sys.argv[1]
     response = requests.post(url, data=letter)
     try:
         json_dict = response.json()
