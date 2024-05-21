@@ -12,7 +12,9 @@ if __name__ == "__main__":
                "Accept": "application/json",
                "X-GitHub-Api-Version": "2022-11-28"}
     response = requests.post("https://api.github.com/user", headers=headers)
-    if response.json().get('login') == username:
+    true_username = response.json().get('login')
+    name = response.json().get('name')
+    if true_username == username or name == username:
         print(response.json()['id'])
     else:
         print("None")
