@@ -7,12 +7,12 @@ if (argv.length < 2) {
 } else {
   let biggest = 0;
   let secondBiggest = 0;
-  for (let i = 0; i < argv.length; i++) {
+  for (let i = 0; i < argv.length - 2; i++) {
     if (+argv[2 + i] > biggest) {
       biggest = +argv[2 + i];
     }
   }
-  for (let i = 0; i < argv.length; i++) {
+  for (let i = 0; i < argv.length - 2; i++) {
     if (+argv[2 + i] > secondBiggest && +argv[2 + i] < biggest) {
       secondBiggest = +argv[2 + i];
     }
