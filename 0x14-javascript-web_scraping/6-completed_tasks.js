@@ -11,11 +11,11 @@ if (argv[2]) {
     3: 0,
     4: 0,
     5: 0,
+    6: 0,
     7: 0,
     8: 0,
     9: 0,
-    10: 0
-  };
+    10: 0 };
   request(url, function (error, response, body) {
     if (!error && response.statusCode === 200) {
       const jsonData = JSON.parse(body);
