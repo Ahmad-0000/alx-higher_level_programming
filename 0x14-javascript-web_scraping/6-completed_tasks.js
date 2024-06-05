@@ -26,26 +26,13 @@ if (argv[2]) {
           output[task.userId]++;
         }
       }
-      let members = 10;
       for (const key in output) {
         if (output[key] === 0) {
           delete output[key];
-          members--;
         }
       }
-      let i = 0;
-      for (const key in output) {
-        if (i === 0) {
-          console.log(`{ '${key}': ${output[key]},`);
-          i++;
-        } else if (i === members - 1) {
-          console.log(`  '${key}': ${output[key]} }`);
-          i++;
-        } else {
-          console.log(`  '${key}': ${output[key]},`);
-          i++;
-        }
-      }
+      console.log(output);
     }
-  });
+  }
+  );
 }
