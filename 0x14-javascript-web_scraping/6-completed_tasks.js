@@ -15,7 +15,8 @@ if (argv[2]) {
     7: 0,
     8: 0,
     9: 0,
-    10: 0 };
+    10: 0
+  };
   request(url, function (error, response, body) {
     if (!error && response.statusCode === 200) {
       const jsonData = JSON.parse(body);
@@ -25,16 +26,26 @@ if (argv[2]) {
           output[task.userId]++;
         }
       }
-      console.log(`{ '1': 11,
-  '2': 8,
-  '3': 7,
-  '4': 6,
-  '5': 12,
-  '6': 6,
-  '7': 9,
-  '8': 11,
-  '9': 8,
-  '10': 12 }`);
+      let members = 10;
+      for (const key in output) {
+        if (output[key] === 0) {
+          delete output[key];
+          members--;
+        }
+      }
+      let i = 0;
+      for (const key in output) {
+        if (i === 0) {
+          console.log(`{ '${key}': ${output[key]},`);
+          i++;
+        } else if (i === members - 1) {
+          console.log(`  '${key}': ${output[key]} }`);
+          i++;
+        } else {
+          console.log(`  '${key}': ${output[key]},`);
+          i++;
+        }
+      }
     }
   });
 }
