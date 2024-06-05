@@ -2,10 +2,11 @@
 
 const request = require('request');
 const characterUrl = 'https://swapi-api.alx-tools.com/api/people/18/';
+const filmsUrl = process.argv[2];
 let result = 0;
 let url = 0;
 
-request('https://swapi-api.alx-tools.com/api/films', function (error, response, body) {
+request(filmsUrl, function (error, response, body) {
   if (!error && response.statusCode === 200) {
     const jsonData = JSON.parse(body);
     let count = 0;
