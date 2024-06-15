@@ -1,4 +1,4 @@
-// Change header tag color to red
+// Changing header tag color to red
 
 const header = document.querySelector('header');
 
