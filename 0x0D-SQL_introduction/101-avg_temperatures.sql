@@ -3,5 +3,5 @@
 USE hbtn_0c_0;
 
 SELECT city, AVG(value) AS avg_temp
-FROM temeratures GROUP BY city
+FROM temperatures GROUP BY city
 ORDER BY avg_temp DESC;
