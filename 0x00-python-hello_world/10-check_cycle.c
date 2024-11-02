@@ -9,23 +9,19 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *p;
+	listint_t *loopptr;
 	char i = 0;
 
 	if (list == NULL)
 		return (0);
-	p = list;
+	loopptr = list;
 	while (list->next != NULL)
 	{
-		if (list->next == p)
+		if (list->next == loopptr)
 			return (1);
-		if (i == 4)
+		if (i == 10)
 		{
-			if (list->next == p)
-				return (1);
-			p = list->next;
-			if (list == p)
-				return (1);
+			loopptr = list;
 			i = 0;
 		}
 		list = list->next;
