@@ -10,9 +10,9 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *loopptr;
-	char i = 0;
+	int i = 0;
 
-	if (list == NULL)
+	if (!list)
 		return (0);
 	loopptr = list;
 	while (list->next != NULL)
@@ -21,7 +21,7 @@ int check_cycle(listint_t *list)
 			return (1);
 		if (i == 10)
 		{
-			loopptr = list;
+			loopptr = loopptr->next->next->next->next->next;
 			i = 0;
 		}
 		list = list->next;
