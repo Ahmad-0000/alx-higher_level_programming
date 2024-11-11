@@ -24,6 +24,6 @@ def roman_to_int(roman_string):
         if roman_int[symbol] < roman_int[roman_string[i + 1]]:
             total -= roman_int[symbol]
         else:
-            total += roman_int[sybmol]
+            total += roman_int[symbol]
         i += 1
     return total
