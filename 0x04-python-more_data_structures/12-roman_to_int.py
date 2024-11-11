@@ -17,7 +17,7 @@ def roman_to_int(roman_string):
     i = 0
     total = 0
     while True:
-        sybmol = roman_string[i]
+        symbol = roman_string[i]
         if i + 1 == len(roman_string):
             total += roman_int[symbol]
             return total
