@@ -13,25 +13,21 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp;
-	int length = 0, last, half;
-	int *numbers;
+	int numbers[100], length = 0, last, half;
 
 	if (!head)
 		return 0;
 	if (*head == NULL)
 		return 1;
 	temp = *head;
-	while (temp)
+	while (temp && length < 100)
 	{
 		temp = temp->next;
 		length++;
 	}
-	numbers = malloc(sizeof(*numbers) * length);
-	if (!numbers)
-		return 0;
 	length = 0;
 	temp = *head;
-	while (temp)
+	while (temp && length < 100)
 	{
 		numbers[length] = temp->n;
 		temp = temp->next;
