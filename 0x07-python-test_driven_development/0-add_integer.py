@@ -3,7 +3,7 @@
 A module containing one function:
     "add_integer"
 """
-import math
+from math import isnan
 
 
 def add_integer(a, b=98):
@@ -13,9 +13,9 @@ def add_integer(a, b=98):
     """
 
     allowed_types = [int, float]
-    if type(a) not in allowed_types or math.isnan(a):
+    if type(a) not in allowed_types or isnan(a):
         raise TypeError('a must be an integer')
-    if type(b) not in allowed_types or math.isnan(b):
+    if type(b) not in allowed_types or isnan(b):
         raise TypeError('b must be an integer')
     result = a + b
     if result == float('inf') or result == -float('inf'):
