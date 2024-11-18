@@ -80,7 +80,7 @@ class Rectangle:
         str_rep = ''
         for j in range(self.__height):
             str_rep += row + '\n'
-        return str_rep
+        return str_rep[:-1]
 
     def __repr__(self):
         return str(self)
