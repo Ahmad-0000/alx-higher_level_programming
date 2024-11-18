@@ -29,11 +29,10 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = "#"
 
-    def __init__(self, width=0, height=0, print_symbol="#"):
+    def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
-        self.print_symbol = print_symbol
 
     @property
     def width(self):
@@ -71,17 +70,21 @@ class Rectangle:
         str_rep = ""
         if self.__width == 0 or self.__height == 0:
             return str_rep
-        if self.print_symbol is not Rectangle.print_symbol:
-            Rectangle.print_symbol = str(self.print_symbol)
+        ps = self.__dict__.get("print_symbol", None)
+        if not ps:
+            ps = Rectangle.print_symbol
+        ps = str(ps)
         for i in range(self.__width):
-            str_rep = str_rep + Rectangle.print_symbol
+            str_rep += ps
         row = str_rep
+        str_rep = ''
         for j in range(self.__height):
-            str_rep = str_rep + '\n' + row
+            str_rep += row + '\n'
         return str_rep
 
     def __repr__(self):
         return str(self)
 
     def __del__(self):
+        print("Deleted a rectangle...")
         Rectangle.number_of_instances -= 1
