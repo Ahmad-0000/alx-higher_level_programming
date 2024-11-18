@@ -34,11 +34,10 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = "#"
 
-    def __init__(self, width=0, height=0, print_symbol="#"):
+    def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
         Rectangle.number_of_instances += 1
-        self.print_symbol = print_symbol
 
     @property
     def width(self):
@@ -76,18 +75,23 @@ class Rectangle:
         str_rep = ""
         if self.__width == 0 or self.__height == 0:
             return str_rep
-        Rectangle.print_symbol = str(self.print_symbol)
+        ps = self.__dict__.get("print_symbol", None)
+        if not ps:
+            ps = Rectangle.print_symbol
+        ps = str(ps)
         for i in range(self.__width):
-            str_rep = str_rep + Rectangle.print_symbol
+            str_rep += ps
         row = str_rep
+        str_rep = ''
         for j in range(self.__height):
-            str_rep = str_rep + '\n' + row
-        return str_rep
+            str_rep += row + '\n'
+        return str_rep[:-1]
 
     def __repr__(self):
         return str(self)
 
     def __del__(self):
+        print("Deleted a rectangle...")
         Rectangle.number_of_instances -= 1
 
     @staticmethod
@@ -96,9 +100,6 @@ class Rectangle:
             raise TypeError('rect_1 must be an instance of Rectangle')
         elif type(rect_2) is not Rectangle:
             raise TypeError('rect_2 must be an instance of Rectangle')
-        if rect_1.area() > rect_2.area():
-            return rect_1
-        elif rect_2.area() > rect_1.area():
+        if rect_2.area() > rect_1.area():
             return rect_2
-        else:
-            return rect_1
+        return rect_1
