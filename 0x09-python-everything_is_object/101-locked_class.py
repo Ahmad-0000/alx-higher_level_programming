@@ -9,5 +9,5 @@ class LockedClass():
     def __setattr__(self, name, value):
         """Limiting the attribute setting feature"""
         if name != 'first_name':
-            raise AttributeError("'LockedClass' object has no attribute 'last_name'")
+            raise AttributeError(f"'LockedClass' object has no attribute '{name}'")
         self.__dict__[f'{name}'] = value
