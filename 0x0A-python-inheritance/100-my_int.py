@@ -21,18 +21,10 @@ class MyInt(int):
         """
         Modified "==" to do the job of "!="
         """
-
-        if self.value == value:
-            return False
-        else:
-            return True
+        return not self.value == value
 
     def __ne__(self, value):
         """
         Modified "!=" to do the job of "=="
         """
-
-        if self.value != value:
-            return False
-        else:
-            return True
+        return not self.value != value
