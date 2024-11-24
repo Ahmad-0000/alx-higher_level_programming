@@ -18,6 +18,6 @@ def add_attribute(obj, name, value):
 
     not_allowed_cls = [int, str, bool, complex, float, set, list, dict, tuple]
     if (type(obj) not in not_allowed_cls):
-        obj.name = value
+        setattr(obj, name, value)
     else:
         raise TypeError("can't add new attribute")
