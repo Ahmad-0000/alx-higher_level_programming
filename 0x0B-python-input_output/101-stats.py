@@ -16,20 +16,20 @@ for line in sys.stdin:
     try:
         filesize += int(line.split(' ')[-1])
         code_time[line.split()[-2]] += 1
-    except ValueError:
+    except ValueError, KeyError:
         pass
     i += 1
     if i == 10:
         print('File size:', filesize)
         for _ in sorted(code_time.keys()):
-            if code_time[_] != 0:
+            if code_time.get(_, 0) != 0:
                 print(f'{_}: {code_time[_]}')
         i = 0
 
 if filesize:
     print('File size:', filesize)
     for _ in sorted(code_time.keys()):
-        if code_time[_] != 0:
+        if code_time.get(_, 0) != 0:
             print(f'{_}: {code_time[_]}')
 
 if empty:
