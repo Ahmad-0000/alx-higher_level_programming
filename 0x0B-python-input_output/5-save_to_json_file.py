@@ -8,7 +8,7 @@ import json
 
 def save_to_json_file(my_obj, filename):
     """
-    A function to write a Python object "my_obj"
+    A function to write an object "my_obj"
     into a file "filename" using JSON foramt.
     """
 
