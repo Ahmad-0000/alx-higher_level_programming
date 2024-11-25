@@ -81,8 +81,8 @@ class Square(Rectangle):
         of a "Square" instance
         '''
         dict_repr = {}
-        dict_repr['id'] = self._Base__id
-        dict_repr['x'] = self._Rectangle__x
+        dict_repr['id'] = self.id
+        dict_repr['x'] = self.x
         dict_repr['size'] = self.size
-        dict_repr['y'] = self._Rectangle__y
+        dict_repr['y'] = self.y
         return dict_repr
