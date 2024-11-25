@@ -67,11 +67,10 @@ class Base():
         '''
         filename = f"{cls.__name__}.json"
         with open(filename, 'w', encoding='utf-8') as my_file:
-            list_dict = []
-            if list_objs:
-                for obj in list_objs:
-                    list_dict.append(obj.to_dictionary())
-            my_file.write(cls.to_json_string(list_dict))
+            dict_list = []
+            for obj in list_objs:
+                dict_list.append(obj.to_dictionary())
+            my_file.write(cls.to_json_string(dict_list))
 
     @staticmethod
     def from_json_string(json_string):
