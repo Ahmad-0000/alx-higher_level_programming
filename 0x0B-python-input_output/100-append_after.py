@@ -14,7 +14,7 @@ def append_after(filename='', search_string='', new_string=''):
         j = 0
         while i < len(lines):
             if search_string in lines[i]:
-                a_clone.insert(i + 1, new_string)
+                a_clone.insert(j + 1, new_string)
                 j += 1
             i += 1
             j += 1
