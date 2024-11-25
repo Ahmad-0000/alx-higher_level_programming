@@ -360,6 +360,8 @@ class TestSquare(unittest.TestCase):
             self.assertEqual(my_file.read(), exp_output)
 
     def test_save_to_file_method_3(self):
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
         Square.save_to_file(None)
         self.assertTrue(os.path.isfile("Square.json"))
         with open("Square.json", 'r', encoding='utf') as my_file:
