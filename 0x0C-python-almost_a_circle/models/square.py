@@ -39,19 +39,15 @@ class Square(Rectangle):
         '''
         A property to retrive "size" attribute
         '''
-        return self._Rectangle__width
+        return self.width
 
     @size.setter
     def size(self, value):
         '''
         A setter to set "size" attribute
         '''
-        if type(value) is not int:
-            raise TypeError('width must be an integer')
-        if value <= 0:
-            raise ValueError('width must be > 0')
-        self._Rectangle__width = value
-        self._Rectangle__height = value
+        self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
         '''
