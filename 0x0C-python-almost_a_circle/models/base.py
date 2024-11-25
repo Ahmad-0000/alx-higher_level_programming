@@ -90,7 +90,7 @@ class Base():
         A method to create a new instance of "cls"
         using the keyword arguments in "dictionary"
         '''
-        dummy_obj = cls(2, 2, 2, 2)
+        dummy_obj = cls(2, 2)
         dummy_obj.update(**dictionary)
         return dummy_obj
 
