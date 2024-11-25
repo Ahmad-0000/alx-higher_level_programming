@@ -53,7 +53,7 @@ class Base():
         is "[]" (string type)
         '''
         if not list_dictionaries or len(list_dictionaries) == 0:
-            return '"[]"'
+            return '[]'
         return json.dumps(list_dictionaries)
 
     @classmethod
