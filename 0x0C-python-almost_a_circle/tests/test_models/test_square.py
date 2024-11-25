@@ -325,14 +325,14 @@ class TestSquare(unittest.TestCase):
         self.assertIs(type(dict_repr), dict)
         json_repr = Square.to_json_string(dict_repr)
         self.assertIs(type(json_repr), str)
-        self.assertEqual(json_repr, '"[]"')
+        self.assertEqual(json_repr, '[]')
 
     def test_to_json_string_method_None(self):
         dict_repr = None
         self.assertIs(type(dict_repr), type(None))
         json_repr = Square.to_json_string(dict_repr)
         self.assertIs(type(json_repr), str)
-        self.assertEqual(json_repr, '"[]"')
+        self.assertEqual(json_repr, '[]')
 
     def test_save_to_file_method_0(self):
         s1 = Square(10, 7, 2, 8)
@@ -356,14 +356,14 @@ class TestSquare(unittest.TestCase):
         Square.save_to_file([])
         self.assertTrue(os.path.isfile("Square.json"))
         with open("Square.json", 'r', encoding='utf') as my_file:
-            exp_output = '"[]"'
+            exp_output = '[]'
             self.assertEqual(my_file.read(), exp_output)
 
     def test_save_to_file_method_3(self):
         Square.save_to_file(None)
         self.assertTrue(os.path.isfile("Square.json"))
         with open("Square.json", 'r', encoding='utf') as my_file:
-            exp_output = '"[]"'
+            exp_output = '[]'
             self.assertEqual(my_file.read(), exp_output)
 
     def test_form_josn_string_method_0(self):

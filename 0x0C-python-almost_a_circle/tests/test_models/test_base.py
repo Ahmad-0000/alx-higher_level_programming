@@ -91,11 +91,11 @@ class TestBase(unittest.TestCase):
         self.assertIs(type(dict_repr), dict)
         json_repr = Base.to_json_string(dict_repr)
         self.assertIs(type(json_repr), str)
-        self.assertEqual(json_repr, '"[]"')
+        self.assertEqual(json_repr, '[]')
 
     def test_to_json_string_method_None(self):
         dict_repr = None
         self.assertIs(type(dict_repr), type(None))
         json_repr = Base.to_json_string(dict_repr)
         self.assertIs(type(json_repr), str)
-        self.assertEqual(json_repr, '"[]"')
+        self.assertEqual(json_repr, '[]')
