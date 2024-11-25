@@ -21,8 +21,8 @@ class Rectangle(Base):
         will be intialized using their own properties and
         setters'''
         super().__init__(id)
-        self.height = height
         self.width = width
+        self.height = height
         self.x = x
         self.y = y
 
