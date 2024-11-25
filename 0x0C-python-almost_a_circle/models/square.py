@@ -32,8 +32,7 @@ class Square(Rectangle):
         represntation of the instance when using "print"
         or "str" functions
         '''
-        return f'[Square] ({self.id}) {self._Rectangle__x}/\
-{self._Rectangle__y} - {self._Rectangle__width}'
+        return f'[Square] ({self.id}) {self.x}/{self.y} - {self.width}'
 
     @property
     def size(self):
