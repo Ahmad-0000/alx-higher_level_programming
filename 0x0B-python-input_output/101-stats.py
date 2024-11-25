@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Log Parsing
+Log Parsing Task:
+    Parsing requests
 """
 import sys
 
