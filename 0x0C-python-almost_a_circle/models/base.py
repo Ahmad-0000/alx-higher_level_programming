@@ -114,3 +114,51 @@ class Base():
                 return return_value
         else:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, objs_list):
+        """Saving objects representations in a csv file
+        """
+        filename = f'{cls.__name__}.csv'
+        lines = []
+        if cls.__name__ == "Rectangle":
+            for obj in objs_list:
+                lines.append(f"{obj.id},{obj.width},{obj.height},{obj.x},{obj.y}\n")
+        elif cls.__name__ == "Square":
+            for obj in objs_list:
+                lines.append(f"{obj.id},{obj.size},{obj.x},{obj.y}\n")
+        with open(filename, "w", encoding="utf-8") as csvfile:
+            csvfile.writelines(lines)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Loading objects from a csv file
+        """
+        filename = cls.__name__ + ".csv"
+        objs = []
+        with open(filename, "r", encoding='utf-8') as csvfile:
+            lines = csvfile.readlines()
+            for line in lines:
+                fields = line.split(',')
+                if len(fields) == 4:
+                    field1, field2, field3, field4 = fields
+                    attributes_dict = {k: v for k, v in [
+                                                         ("id", int(field1)),
+                                                         ("size", int(field2)),
+                                                         ("x", int(field3)),
+                                                         ("y", int(field4))
+                                                        ]
+                                      }
+                    objs.append(cls.create(**attributes_dict))
+                elif len(fields) == 5:
+                    field1, field2, field3, field4, field5 = fields
+                    attributes_dict = {k: v for k, v in [
+                                                         ("id", int(field1)),
+                                                         ("width", int(field2)),
+                                                         ("height", int(field3)),
+                                                         ("x", int(field4)),
+                                                         ("y", int(field5))
+                                                        ]
+                                      }
+                    objs.append(cls.create(**attributes_dict))
+        return objs
