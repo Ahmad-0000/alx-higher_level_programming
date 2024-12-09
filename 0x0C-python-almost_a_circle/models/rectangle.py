@@ -21,8 +21,8 @@ class Rectangle(Base):
         will be intialized using their own properties and
         setters'''
         super().__init__(id)
-        self.height = height
         self.width = width
+        self.height = height
         self.x = x
         self.y = y
 
@@ -126,30 +126,28 @@ class Rectangle(Base):
             my_list = []
             for i in args:
                 my_list.append(i)
-            my_list = tuple(my_list)
-            if len(args) == 1:
+            length = len(args)
+            if length == 1:
                 self.id = my_list[0]
-            elif len(args) == 2:
+            elif length == 2:
                 self.id, self.width = my_list
-            elif len(args) == 3:
+            elif length == 3:
                 self.id, self.width, self.height = my_list
-            elif len(args) == 4:
+            elif length == 4:
                 self.id, self.width, self.height, self.x = my_list
-            elif len(args) >= 5:
+            elif length >= 5:
                 self.id, self.width, self.height, self.x, self.y = my_list
         elif kwargs:
-            keys = kwargs.keys()
-            for key in keys:
-                if key == 'id':
-                    self.id = kwargs['id']
-                elif key == 'width':
-                    self.width = kwargs['width']
-                elif key == 'height':
-                    self.height = kwargs['height']
-                elif key == 'x':
-                    self.x = kwargs['x']
-                elif key == 'y':
-                    self.y = kwargs['y']
+            if "id" in kwargs:
+                self.id = kwargs['id']
+            if "width" in kwargs:
+                self.width = kwargs['width']
+            if "height" in kwargs:
+                self.height = kwargs['height']
+            if "x" in kwargs:
+                self.x = kwargs['x']
+            if "y" in kwargs:
+                self.y = kwargs['y']
 
     def to_dictionary(self):
         '''

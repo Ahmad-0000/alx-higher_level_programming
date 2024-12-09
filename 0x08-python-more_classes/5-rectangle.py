@@ -65,3 +65,8 @@ class Rectangle:
 
     def __repr__(self):
         return "Rectangle(" + str(self.width) + ', ' + str(self.height) + ')'
+
+    def __del__(self):
+        """Printing a message when deleting a rectangle
+        """
+        print("Deleted a rectangle...")

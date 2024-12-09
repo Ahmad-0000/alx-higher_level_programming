@@ -9,13 +9,9 @@ import json
 def load_from_json_file(filename):
     """
     A function to convert a JSON string provided in
-    "filename" to a Python object.
+    "filename" to an object.
     """
 
     with open(filename, encoding="utf-8") as my_file:
-        content = my_file.read()
-        if content:
-            return json.loads(content)
-        else:
-            return
-    return
+        obj = json.load(my_file)
+    return obj

@@ -49,6 +49,8 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
+        """A string representation for the end user
+        """
         str_rep = ""
         if self.__width == 0 or self.__height == 0:
             return str_rep
@@ -58,3 +60,8 @@ class Rectangle:
         for j in range(self.__height - 1):
             str_rep = str_rep + '\n' + row
         return str_rep
+
+    def __repr__(self):
+        """A string represenation to used by 'eval'
+        """
+        return f'Rectangle({self.width}, {self.height})'

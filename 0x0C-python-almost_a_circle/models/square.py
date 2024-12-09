@@ -32,27 +32,22 @@ class Square(Rectangle):
         represntation of the instance when using "print"
         or "str" functions
         '''
-        return f'[Square] ({self.id}) {self._Rectangle__x}/\
-{self._Rectangle__y} - {self._Rectangle__width}'
+        return f'[Square] ({self.id}) {self.x}/{self.y} - {self.width}'
 
     @property
     def size(self):
         '''
         A property to retrive "size" attribute
         '''
-        return self._Rectangle__width
+        return self.width
 
     @size.setter
     def size(self, value):
         '''
         A setter to set "size" attribute
         '''
-        if type(value) is not int:
-            raise TypeError('width must be an integer')
-        if value <= 0:
-            raise ValueError('width must be > 0')
-        self._Rectangle__width = value
-        self._Rectangle__height = value
+        self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
         '''
@@ -60,30 +55,25 @@ class Square(Rectangle):
         is present and not empty, it will be used, otherwise
         "kwargs" will be used for updating
         '''
+        length = len(args)
         if args:
-            my_list = []
-            for arg in args:
-                my_list.append(arg)
-            my_list = tuple(my_list)
-            if len(my_list) == 1:
+            if length == 1:
                 self.id = args[0]
-            elif len(my_list) == 2:
+            elif length == 2:
                 self.id, self.size = args
-            elif len(my_list) == 3:
+            elif length == 3:
                 self.id, self.size, self.x = args
-            elif len(my_list) >= 4:
+            elif length >= 4:
                 self.id, self.size, self.x, self.y = args
         elif kwargs:
-            keys = kwargs.keys()
-            for key in keys:
-                if key == "id":
-                    self.id = kwargs[f'{key}']
-                if key == "size":
-                    self.size = kwargs[f'{key}']
-                if key == "x":
-                    self.x = kwargs[f'{key}']
-                if key == "y":
-                    self.y = kwargs[f'{key}']
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            if "size" in kwargs:
+                self.size = kwargs["size"]
+            if "x" in kwargs:
+                self.x = kwargs["x"]
+            if "y" in kwargs:
+                self.y = kwargs["y"]
 
     def to_dictionary(self):
         '''
@@ -91,8 +81,8 @@ class Square(Rectangle):
         of a "Square" instance
         '''
         dict_repr = {}
-        dict_repr['id'] = self._Base__id
-        dict_repr['x'] = self._Rectangle__x
+        dict_repr['id'] = self.id
+        dict_repr['x'] = self.x
         dict_repr['size'] = self.size
-        dict_repr['y'] = self._Rectangle__y
+        dict_repr['y'] = self.y
         return dict_repr

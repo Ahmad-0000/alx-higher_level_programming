@@ -76,4 +76,5 @@ class Rectangle:
         return str(self)
 
     def __del__(self):
+        print("Deleted a rectangle...")
         Rectangle.number_of_instances -= 1

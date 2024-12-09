@@ -1,3 +1,4 @@
+import subprocess
 import unittest
 import os
 import json
@@ -406,21 +407,21 @@ class TestRectangle(unittest.TestCase):
         self.assertIs(type(dict_repr), dict)
         json_repr = Rectangle.to_json_string(dict_repr)
         self.assertIs(type(json_repr), str)
-        self.assertEqual(json_repr, '"[]"')
+        self.assertEqual(json_repr, '[]')
 
     def test_to_json_string_method_None(self):
         dict_repr = None
         self.assertIs(type(dict_repr), type(None))
         json_repr = Rectangle.to_json_string(dict_repr)
         self.assertIs(type(json_repr), str)
-        self.assertEqual(json_repr, '"[]"')
+        self.assertEqual(json_repr, '[]')
 
     def test_save_to_file_method_0(self):
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         Rectangle.save_to_file([r1, r2])
         self.assertTrue(os.path.isfile("Rectangle.json"))
-        with open("Rectangle.json", 'r', encoding='utf') as my_file:
+        with open("Rectangle.json", 'r', encoding='utf-8') as my_file:
             exp_output = json.dumps([r1.to_dictionary(), r2.to_dictionary()])
             self.assertEqual(my_file.read(), exp_output)
 
@@ -429,22 +430,24 @@ class TestRectangle(unittest.TestCase):
         r4 = Rectangle(7, 19)
         Rectangle.save_to_file([r3, r4])
         self.assertTrue(os.path.isfile("Rectangle.json"))
-        with open("Rectangle.json", 'r', encoding='utf') as my_file:
+        with open("Rectangle.json", 'r', encoding='utf-8') as my_file:
             exp_output = json.dumps([r3.to_dictionary(), r4.to_dictionary()])
             self.assertEqual(my_file.read(), exp_output)
     
     def test_save_to_file_method_2(self):
         Rectangle.save_to_file([])
         self.assertTrue(os.path.isfile("Rectangle.json"))
-        with open("Rectangle.json", 'r', encoding='utf') as my_file:
-            exp_output = '"[]"'
+        with open("Rectangle.json", 'r', encoding='utf-8') as my_file:
+            exp_output = '[]'
             self.assertEqual(my_file.read(), exp_output)
 
     def test_save_to_file_method_3(self):
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
         Rectangle.save_to_file(None)
         self.assertTrue(os.path.isfile("Rectangle.json"))
-        with open("Rectangle.json", 'r', encoding='utf') as my_file:
-            exp_output = '"[]"'
+        with open("Rectangle.json", 'r', encoding='utf-8') as my_file:
+            exp_output = '[]'
             self.assertEqual(my_file.read(), exp_output)
 
     def test_form_josn_string_method_0(self):
@@ -493,3 +496,31 @@ class TestRectangle(unittest.TestCase):
         Rs_list_output = Rectangle.load_from_file()
         self.assertEqual(len(Rs_list_output), 0)
         self.assertIs(type(Rs_list_output), list)
+
+    def test_display(self):
+        script = 'from models.rectangle import Rectangle;'\
+                'r = Rectangle(2, 4); r.display()'
+        ps = subprocess.Popen(["python3", "-c", script], stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE)
+        output, error = ps.communicate()
+        output = output.decode()
+        self.assertEqual("##\n##\n##\n##\n", output)
+
+
+    def test_display2(self):
+        script = 'from models.rectangle import Rectangle;'\
+                'r = Rectangle(2, 4, 2); r.display()'
+        ps = subprocess.Popen(["python3", "-c", script], stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE)
+        output, error = ps.communicate()
+        output = output.decode()
+        self.assertEqual("  ##\n  ##\n  ##\n  ##\n", output)
+    
+    def test_display3(self):
+        script = 'from models.rectangle import Rectangle;'\
+                'r = Rectangle(2, 4, 2, 2); r.display()'
+        ps = subprocess.Popen(["python3", "-c", script], stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE)
+        output, error = ps.communicate()
+        output = output.decode()
+        self.assertEqual("\n\n  ##\n  ##\n  ##\n  ##\n", output)

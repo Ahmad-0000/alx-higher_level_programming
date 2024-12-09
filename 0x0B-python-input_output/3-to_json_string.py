@@ -8,7 +8,7 @@ import json
 
 def to_json_string(my_obj):
     """
-    A function to convert a Python object "my_obj" to JSON
+    A function to convert an object "my_obj" to JSON
     string.
     """
 

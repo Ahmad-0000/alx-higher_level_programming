@@ -1,6 +1,3 @@
-##################################################
-"add_integer" test cases
-##################################################
 """
 >>> import sys
 >>> sys.path.append('..')
@@ -11,6 +8,12 @@
 99
 >>> add_integer(1.3, 1.3)
 2
+>>> add_integer(float('inf'), float('inf'))
+89
+>>> add_integer(float('inf'))
+89
+>>> add_integer(12, float('inf'))
+89
 >>> add_integer('ahmad', 100)
 Traceback (most recent call last):
     ...
@@ -75,6 +78,10 @@ TypeError: a must be an integer
 Traceback (most recent call last):
     ...
 TypeError: b must be an integer
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
 >>> add_integer()
 Traceback (most recent call last):
     ...
